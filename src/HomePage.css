@@ -78,8 +78,9 @@
     height: 175px;
 
     border-radius: 20px;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
     background: #FFFFFF; /* Background color */
-    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.20)); /* Drop shadow */
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.20)); /* Drop shadow */
 }
 .widget-icon-container{
     width: 50px;
@@ -114,8 +115,9 @@
     height: 175px;
 
     border-radius: 20px;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
     background: #FFFFFF; /* Background color */
-    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.20)); /* Drop shadow */
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.20)); /* Drop shadow */
 }
 
 @media screen and (max-width:1300px) { /* changes for small screen */
