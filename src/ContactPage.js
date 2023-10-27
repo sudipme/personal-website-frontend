@@ -5,7 +5,7 @@ export default function ContactPage(){
 
   useEffect(() => {
     // Send the API request using Fetch
-    fetch('http://localhost:8000/api/data')
+    fetch('http://sudip.me/api/data')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
