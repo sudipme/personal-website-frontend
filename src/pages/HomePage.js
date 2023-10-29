@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
-import display_img from'./images/display-img.jpeg';
-import instagram_logo from './images/icons/instagram_logo.svg'
-import twitter_logo from './images/icons/twitter_logo.svg'
-import linkedinLogo from './images/icons/linkedin-logo.svg'
-import mediumLogo from './images/icons/medium-logo.svg'
-import githubLogo from './images/icons/github-logo.svg'
-import leetcodeLogo from './images/icons/leetcode-logo.png'
-import codeforcesLogo from './images/icons/codeforces-transparent.png'
-import codechefLogo from './images/icons/codechef-non-transparent.png'
-import youtubeLogo from './images/icons/youtube-logo.svg'
+import display_img from'../images/display-img.jpeg';
+import instagram_logo from '../images/icons/instagram_logo.svg'
+import twitter_logo from '../images/icons/twitter_logo.svg'
+import linkedinLogo from '../images/icons/linkedin-logo.svg'
+import mediumLogo from '../images/icons/medium-logo.svg'
+import githubLogo from '../images/icons/github-logo.svg'
+import leetcodeLogo from '../images/icons/leetcode-logo.png'
+import codeforcesLogo from '../images/icons/codeforces-transparent.png'
+import codechefLogo from '../images/icons/codechef-non-transparent.png'
+import youtubeLogo from '../images/icons/youtube-logo.svg'
 export default function HomePage(){
     return(
         <div id='home-page'>
