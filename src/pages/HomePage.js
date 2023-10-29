@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
 import display_img from'../images/display-img.jpeg';
-import instagram_logo from '../images/icons/instagram_logo.svg'
+import instagramLogo from '../images/icons/instagram-logo.svg'
 import twitter_logo from '../images/icons/twitter_logo.svg'
 import linkedinLogo from '../images/icons/linkedin-logo.svg'
 import mediumLogo from '../images/icons/medium-logo.svg'
@@ -26,7 +26,7 @@ function AboutMePanel(){
         <div id='aboutme-panel'>
             <div id='aboutme-box'>
                 <div id='my-intro-box'>
-                    <img id='display-img' src={display_img}></img>
+                    <img id='display-img' src={display_img} alt='sudip halder'></img>
                     <h1 id='my-name'>Sudip Halder</h1>
                     <p id='aboutme'>
                         Hi, I am Sudip.
@@ -63,55 +63,51 @@ function WidgetsPanel(){
         };
       }, []);
 
-    const widgets = {
-        w1:{
-            size:'wide',
-            startPosition:'1',
-            color:'#E9F4FC',
-            src:twitter_logo,
-            widgetTitle:"twitter",
-            userId:"@sudiphl"
-
-        }
-    }
     return(
         <div id='widgets-panel'>
             <p id='widget-panel-heading'>Social links 🔗</p>
             
                 <div id='widget-grid'>
-                    { windowWidth < 1300 ?(
-                        <>
-                        <SmallWidget link="https://x.com/sudiphl" startPosition="1" color="#E9F4FC" src={twitter_logo} widgetTitle="twitter" userId="@sudiphl"/>
-                        <SmallWidget link="https://linkedin.com/in/sudiphalder" startPosition="2" color="#E9F4FC" src={linkedinLogo} widgetTitle="LinkedIn" userId="@sudiphalder"/>
+                    
+                    {
+                        Object.keys(widgets).map((widgetKey) => {
+                            const widget = widgets[widgetKey];
+                            let position=widget.position;
+                            let size = widget.size;
+                            if(windowWidth < 1300){
+                                position=widget.mPosition;
+                                size=widget.mSize
+                            }
+                            if(size==="small"){
+                                return(
+                                    <SmallWidget 
+                                    key={widget.title}
+                                    link={widget.link} 
+                                    startPosition={position}
+                                    color={widget.color} 
+                                    src={widget.icon} 
+                                    widgetTitle={widget.title}
+                                    userId={widget.userId}/>
+                                    );
+                            }else if(size==="wide"){
+                                return(
+                                    <WideWidget 
+                                    key={widget.title}
+                                    link={widget.link} 
+                                    startPosition={position}
+                                    color={widget.color} 
+                                    src={widget.icon} 
+                                    widgetTitle={widget.title}
+                                    userId={widget.userId}/>
+                                    );
+                            }
+                            return(null);
 
-                        <SmallWidget link="https://youtube.com/@sudip.halder" startPosition="1" src={youtubeLogo} widgetTitle="Youtube" userId="@sudip.halder"/>
-                        <SmallWidget link="https://instagram.com/sudiphl" startPosition="2" src={instagram_logo} widgetTitle="Instagram" userId="@sudiphl"/>
-
-                        <WideWidget link="https://sudipme.medium.com" startPosition="1" src={mediumLogo} widgetTitle="Medium" userId="@sudipme"/>
-
-                        <WideWidget link="https://github.com/sudipme" startPosition="1" src={githubLogo} widgetTitle="GitHub" userId="@sudipme"/>
-
-                        <WideWidget link="https://www.codechef.com/users/sudiphalder" startPosition="1" src={codechefLogo} widgetTitle="CodeChef" userId="@sudip_halder"/>
-
-                        <SmallWidget link="https://leetcode.com/sudip_halder" startPosition="1" src={leetcodeLogo} widgetTitle="LeetCode" userId="sudip_halder"/>
-                        <SmallWidget link="https://codeforces.com/profile/Sudip_H" startPosition="2" src={codeforcesLogo} widgetTitle="CodeForces" userId="@Sudip_H"/>
-                        </>
-                    ):(
-                       <>
-                        <WideWidget link="https://x.com/sudiphl" startPosition="1" color="#E9F4FC" src={twitter_logo} widgetTitle="twitter" userId="@sudiphl"/>
-                        <SmallWidget link="https://linkedin.com/in/sudiphalder" startPosition="3" color="#E9F4FC" src={linkedinLogo} widgetTitle="LinkedIn" userId="@sudiphalder"/>
-                        <SmallWidget link="https://youtube.com/@sudip.halder" startPosition="4" src={youtubeLogo} widgetTitle="Youtube" userId="@sudip.halder"/>
-
-                        <SmallWidget link="https://sudipme.medium.com" startPosition="1" src={mediumLogo} widgetTitle="Medium" userId="@sudipme"/>
-                        <SmallWidget link="https://instagram.com/sudiphl" startPosition="2" src={instagram_logo} widgetTitle="Instagram" userId="@sudiphl"/>
-                        <WideWidget link="https://github.com/sudipme" startPosition="3" src={githubLogo} widgetTitle="GitHub" userId="@sudipme" />
-
-                        <WideWidget link="https://leetcode.com/sudip_halder" startPosition="1" src={leetcodeLogo} widgetTitle="LeetCode" userId="sudip_halder"/>
-                        <SmallWidget link="https://codeforces.com/profile/Sudip_H" startPosition="3" src={codeforcesLogo} widgetTitle="CodeForces" userId="@Sudip_H"/>
-                        <SmallWidget link="https://www.codechef.com/users/sudiphalder" startPosition="4" src={codechefLogo} widgetTitle="CodeChef" userId="@sudip_halder"/>
-                        </>
+                            
+                        }
                         
                     )}
+                    
                 </div>
 
         </div>
@@ -120,13 +116,13 @@ function WidgetsPanel(){
 
 function SmallWidget(props){
     const style = {
-        gridColumn: props.startPosition + "/" + "span 1",
+        gridColumn: `${props.startPosition}/span 1`,
         backgroundColor: props.color,
     }
     return(
         <div onClick={()=>redirectTo(props.link)} className='small-grid-item' id={props.id} style={style} >
             <div className='widget-icon-container'>
-            <img className='widget-icon' src={props.src}></img>
+            <img className='widget-icon' src={props.src} alt='widget icon'></img>
             </div>
             <p className='widget-title'>{props.widgetTitle}</p>
             <p className='widget-userid'>{props.userId}</p>
@@ -136,14 +132,14 @@ function SmallWidget(props){
 
 function WideWidget(props){
     const style = {
-        gridColumn: props.startPosition + "/" + "span 2",
+        gridColumn: `${props.startPosition}/span 2`,
         backgroundColor: props.color,
     }
    
     return(
         <div onClick={()=>redirectTo(props.link)} className='wide-grid-item'style={style} >
             <div className='widget-icon-container'>
-            <img className='widget-icon' src={props.src}></img>
+            <img className='widget-icon' src={props.src} alt='widget icon'></img>
             </div>
             <p className='widget-title'>{props.widgetTitle}</p>
             <p className='widget-userid'>{props.userId}</p>
@@ -151,4 +147,106 @@ function WideWidget(props){
     )
 }
 
+let widgets = {
+    twitter:{
+        size:"wide",
+        mSize:"small",
+        position:1,
+        mPosition:1,
+        color:"#E9F4FC",
+        link:"https://x.com/sudiphl",
+        icon:twitter_logo,
+        title:"twitter",
+        userId:"@sudiphl",
+    },
+    linkedin:{
+        size:"small",
+        mSize:"small",
+        position:3,
+        mPosition:2,
+        color:"#E9F4FC",
+        link:"https://linkedin.com/in/sudiphalder",
+        icon:linkedinLogo,
+        title:"LinkedIn",
+        userId:"@sudiphalder",
+    },
+    youtube:{
+        size:"small",
+        mSize:"small",
+        position:4,
+        mPosition:1,
+        color:"#FFFFFF",
+        link:"https://youtube.com/@sudip.halder",
+        icon:youtubeLogo,
+        title:"Youtube",
+        userId:"@sudip.halder",
+    },
+    medium:{
+        size:"small",
+        mSize:"wide",
+        position:1,
+        mPosition:1,
+        color:"#FFFFFF",
+        link:"https://sudipme.medium.com",
+        icon:mediumLogo,
+        title:"Medium",
+        userId:"@sudipme",
+    },
+    instagram:{
+        size:"small",
+        mSize:"small",
+        position:2,
+        mPosition:2,
+        color:"#FFFFFF",
+        link:"https://instagram.com/sudiphl",
+        icon:instagramLogo,
+        title:"Instagram",
+        userId:"@sudiphl",
+    },
+    github:{
+        size:"wide",
+        mSize:"wide",
+        position:3,
+        mPosition:1,
+        color:"#FFFFFF",
+        link:"https://github.com/sudipme",
+        icon:githubLogo,
+        title:"GitHub",
+        userId:"@sudipme",
+    },
+    codechef:{
+        size:"wide",
+        mSize:"wide",
+        position:1,
+        mPosition:1,
+        color:"#FFFFFF",
+        link:"https://codechef.com/users/sudiphalder",
+        icon:codechefLogo,
+        title:"CodeChef",
+        userId:"@sudihalder",
+    },
+    leetcode:{
+        size:"small",
+        mSize:"small",
+        position:3,
+        mPosition:1,
+        color:"#FFFFFF",
+        link:"https://leetcode.com/sudip_halder",
+        icon:leetcodeLogo,
+        title:"Leetcode",
+        userId:"@sudip_halder",
+    },
+    codeforces:{
+        size:"small",
+        mSize:"small",
+        position:4,
+        mPosition:2,
+        color:"#FFFFFF",
+        link:"https://codeforces.com/profile/Sudip_H",
+        icon:codeforcesLogo,
+        title:"CodeForces",
+        userId:"@sudip_H",
+    }
 
+}
+    
