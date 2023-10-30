@@ -1,12 +1,13 @@
+
 #main-container{
+    position: fixed;
     width: 100vw;
     height: 100vh;
+    padding-top: 50px;
     display: flex;
     flex-flow: column;
-    justify-content: center;
     align-items: center;
-
-    background-color: rgb(5, 5, 5);
+    background-color: rgb(5,8,5);
 }
 
 #not-found-img{
@@ -25,7 +26,9 @@
 }
 
 @media screen and (max-width:1300px){
+    #main-container{
 
+    }
     #not-found-headline{
         font-size: 20px;
     }
