@@ -1,0 +1,32 @@
+#main-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(5, 5, 5);
+}
+
+#not-found-img{
+    width: 300px;
+}
+#not-found-headline{
+    color:rgb(65, 225, 16);
+}
+#not-found-para{
+    font-size: large;
+    color: white;
+}
+#home-link{
+    color: limegreen;
+    text-decoration: none;
+}
+
+@media screen and (max-width:1300px){
+
+    #not-found-headline{
+        font-size: 20px;
+    }
+}
