@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import './HomePage.css';
-import display_img from'../images/display-img.jpeg';
-import instagramLogo from '../images/icons/instagram-logo.svg'
-import twitter_logo from '../images/icons/twitter_logo.svg'
-import linkedinLogo from '../images/icons/linkedin-logo.svg'
-import mediumLogo from '../images/icons/medium-logo.svg'
-import githubLogo from '../images/icons/github-logo.svg'
-import leetcodeLogo from '../images/icons/leetcode-logo.png'
-import codeforcesLogo from '../images/icons/codeforces-transparent.png'
-import codechefLogo from '../images/icons/codechef-non-transparent.png'
-import youtubeLogo from '../images/icons/youtube-logo.svg'
-export default function HomePage(){
+
+import {SmallWidget, WideWidget} from '../components/HomePage/LinkWidgets';
+import NavLink from '../components/HomePage/NavLinks';
+
+import '../css/HomePage.css';
+
+import displayImg from'../images/my-image.jpeg';
+import instagramLogo from '../images/icons/instagram-logo.svg';
+import twitter_logo from '../images/icons/twitter_logo.svg';
+import linkedinLogo from '../images/icons/linkedin-logo.svg';
+import mediumLogo from '../images/icons/medium-logo.svg';
+import githubLogo from '../images/icons/github-logo.svg';
+import leetcodeLogo from '../images/icons/leetcode-logo.png';
+import codeforcesLogo from '../images/icons/codeforces-transparent.png';
+import codechefLogo from '../images/icons/codechef-non-transparent.png';
+import youtubeLogo from '../images/icons/youtube-logo.svg';
+
+
+function HomePage(){
     return(
         <div id='home-page'>
         <AboutMePanel/>
@@ -19,14 +26,12 @@ export default function HomePage(){
     )
 }
 
-function redirectTo(link){window.location.href = link;}
-
 function AboutMePanel(){
     return(
         <div id='aboutme-panel'>
             <div id='aboutme-box'>
                 <div id='my-intro-box'>
-                    <img id='display-img' src={display_img} alt='sudip halder'></img>
+                    <img id='display-img' src={displayImg} alt='sudip halder'></img>
                     <h1 id='my-name'>Sudip Halder</h1>
                     <p id='aboutme'>
                         Hi, I am Sudip.
@@ -35,17 +40,12 @@ function AboutMePanel(){
                     </p>
                 </div>
                 <div id='nav-links-box'>
-                    <NavLink widgetTitle={"Projects"}/>
-                    <NavLink widgetTitle={"Blogs"}/>
-                    <NavLink widgetTitle={"Send a mail"}/>
+                    <NavLink widgetTitle={"Projects"} link="https://sudip.me/projects"/>
+                    <NavLink widgetTitle={"Blogs"} link="https://sudipme.medium.com"/>
+                    <NavLink widgetTitle={"Send a mail"} link="https://sudip.me/mail" />
                 </div>
             </div>
         </div>
-    )
-}
-function NavLink(props){
-    return(
-        <div className='nav-link'>{props.widgetTitle}</div>
     )
 }
 
@@ -66,9 +66,7 @@ function WidgetsPanel(){
     return(
         <div id='widgets-panel'>
             <p id='widget-panel-heading'>Social links 🔗</p>
-            
                 <div id='widget-grid'>
-                    
                     {
                         Object.keys(widgets).map((widgetKey) => {
                             const widget = widgets[widgetKey];
@@ -101,48 +99,10 @@ function WidgetsPanel(){
                                     userId={widget.userId}/>
                                     );
                             }
-                            return(null);
-
-                            
-                        }
-                        
-                    )}
-                    
+                            return(null);                            
+                        }   
+                    )}   
                 </div>
-
-        </div>
-    )
-}
-
-function SmallWidget(props){
-    const style = {
-        gridColumn: `${props.startPosition}/span 1`,
-        backgroundColor: props.color,
-    }
-    return(
-        <div onClick={()=>redirectTo(props.link)} className='small-grid-item' id={props.id} style={style} >
-            <div className='widget-icon-container'>
-            <img className='widget-icon' src={props.src} alt='widget icon'></img>
-            </div>
-            <p className='widget-title'>{props.widgetTitle}</p>
-            <p className='widget-userid'>{props.userId}</p>
-        </div>
-    )
-}
-
-function WideWidget(props){
-    const style = {
-        gridColumn: `${props.startPosition}/span 2`,
-        backgroundColor: props.color,
-    }
-   
-    return(
-        <div onClick={()=>redirectTo(props.link)} className='wide-grid-item'style={style} >
-            <div className='widget-icon-container'>
-            <img className='widget-icon' src={props.src} alt='widget icon'></img>
-            </div>
-            <p className='widget-title'>{props.widgetTitle}</p>
-            <p className='widget-userid'>{props.userId}</p>
         </div>
     )
 }
@@ -249,4 +209,5 @@ let widgets = {
     }
 
 }
-    
+
+export default HomePage;
