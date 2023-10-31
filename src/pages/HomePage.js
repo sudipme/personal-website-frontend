@@ -34,9 +34,13 @@ function AboutMePanel(){
                     <img id='display-img' src={displayImg} alt='sudip halder'></img>
                     <h1 id='my-name'>Sudip Halder</h1>
                     <p id='aboutme'>
-                        Hi, I am Sudip.
-                        <br></br>
-                        Connect with me via twitter and LinkedIn.
+                    Hi, I am Sudip.
+                    <br></br>
+                    I primarily work in the field of <b>Data Science.</b> 
+                    <br></br>
+                    I also enjoy writing blogs and taking part in weekly coding contests.
+                    <br></br>
+                    Let's connect via Twitter and LinkedIn. 🤝.
                     </p>
                 </div>
                 <div id='nav-links-box'>

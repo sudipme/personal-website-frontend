@@ -53,7 +53,7 @@ function SendMail() {
   };
 
   return (
-    <div id='main-container' >
+    <div id='send-mail-main-container' >
       <form id="contact-form" onSubmit={handleSubmit} name='mail-form'>
         <div id="contact-form-input-container">
           <input 
