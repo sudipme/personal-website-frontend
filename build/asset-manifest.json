@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fb0f2448.css",
+    "main.js": "/static/js/main.ab9b35c1.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/page-not-found-img.png": "/static/media/page-not-found-img.8f9866c7c0b1f9c05e8a.png",
+    "static/media/my-image.jpeg": "/static/media/my-image.627588db1c6deadc46d2.jpeg",
+    "static/media/codechef-non-transparent.png": "/static/media/codechef-non-transparent.e70be7121ff1cd44caaf.png",
+    "static/media/github-logo.svg": "/static/media/github-logo.8d1bc524d64f25bee143d25b34c557ac.svg",
+    "static/media/instagram-logo.svg": "/static/media/instagram-logo.91084741d108d56af3316af30168910a.svg",
+    "static/media/youtube-logo.svg": "/static/media/youtube-logo.dd47c6bcb87c07f7473d9f8c7764e682.svg",
+    "static/media/twitter_logo.svg": "/static/media/twitter_logo.a42289396deeed3e5f8163fa49df2667.svg",
+    "static/media/medium-logo.svg": "/static/media/medium-logo.52b9a549c148eacbf176efd929096d65.svg",
+    "static/media/linkedin-logo.svg": "/static/media/linkedin-logo.c341cc1c307221b0fe42599c619ceeaf.svg",
+    "index.html": "/index.html",
+    "main.fb0f2448.css.map": "/static/css/main.fb0f2448.css.map",
+    "main.ab9b35c1.js.map": "/static/js/main.ab9b35c1.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fb0f2448.css",
+    "static/js/main.ab9b35c1.js"
+  ]
+}
