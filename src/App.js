@@ -4,6 +4,7 @@ import './css/App.css';
 import HomePage from './pages/HomePage';
 import ApiConnectionTest from './pages/ApiConnectionTest';
 import NotFound from './pages/NotFound';
+import SendMail from './pages/SendMail';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
       <Routes>
         <Route exact path='/' element={<HomePage />} />
         <Route exact path='/backend' element={<ApiConnectionTest />} />
+        <Route exact path='/mail' element={<SendMail/>} />
+        
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
