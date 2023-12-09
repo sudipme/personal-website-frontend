@@ -102,7 +102,6 @@ function WidgetsPanel() {
     useEffect(() => {
         window.addEventListener('resize', updateWindowWidth);
 
-        // Remove the event listener when the component unmounts
         return () => {
             window.removeEventListener('resize', updateWindowWidth);
         };
