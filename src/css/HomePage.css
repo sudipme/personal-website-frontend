@@ -2,3 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+#about-me-container{
+    width: 70vw;
+    padding-left: 100px,
+}
+#about-me{
+    width: 50vw;
+}
+@media screen and (max-width: 768px){
+    #about-me-container{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #about-me{
+        width: 85vw;
+    }
+}

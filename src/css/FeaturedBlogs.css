@@ -1,0 +1,19 @@
+#blogs-row-container{
+    width: 80vw;
+}
+
+#blogs-row-container:hover #blog-title{
+    color: #005985;
+    
+}
+#blog-description{
+    width: 80vw;
+}
+@media screen and (max-width: 768px){
+    #blogs-row-container{
+        width: 90vw;
+    }
+    #blog-description{
+        width: 85vw;
+    }
+}

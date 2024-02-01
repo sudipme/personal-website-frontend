@@ -1,25 +1,24 @@
+import '../../css/HighlightsRow.css';
 function HighlightsRow(props){
     const rowContainerStyle = {
-        width: "900px",
         height: "40px",
         margin: "8px 0",
         display: "flex",
-        borderRadius: "20px",
+        borderRadius: "10px",
         border: "0.5px solid rgba(0, 0, 0, 0.1)",
         background: "#FFFFFF",
         filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.20))",
         cursor: "pointer",
     }
     const frontDesignStyle = {
-        width: "30px",
+        width: "10px",
         height: "40px",
-        borderRadius: "20px 0px 0px 20px",
+        borderRadius: "10px 0px 0px 10px",
         border: "1px solid rgba(0, 0, 0, 0.10)",
         background: "#767676",
         boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.20)",
     }
     const contentContainerStyle = {
-        width: "80%",
         height: "40px",
         display: "flex",
         alignItems: "center",

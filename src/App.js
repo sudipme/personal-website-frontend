@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import ApiConnectionTest from './pages/ApiConnectionTest';
 import NotFound from './pages/NotFound';
 import SendMail from './pages/SendMail';
+import DisplayBlog from './pages/DisplayBlog';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path='/' element={<HomePage />} />
         <Route exact path='/backend' element={<ApiConnectionTest />} />
         <Route exact path='/mail' element={<SendMail/>} />
+        <Route exact path='/blogs/:blogId' element={<DisplayBlog/>} />
         
         <Route path="*" element={<NotFound/>}/>
       </Routes>

@@ -1,0 +1,22 @@
+#grid{
+    grid-template-columns: 390px 390px 390px;
+    
+}
+
+#project-desctiption{
+    width: 330px;
+}
+
+@media screen and (max-width: 1300px){
+    #grid{
+        grid-template-columns: 360px 360px; 
+    }
+}
+@media screen and (max-width: 768px){
+    #grid{
+        grid-template-columns: 360px; 
+    }
+    #project-desctiption{
+        width: 300px;
+    }
+}

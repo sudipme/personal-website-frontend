@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
-function WideWidget(props){
+import '../../css/ProjectCards.css';
+
+import { BaseUrl, ApiBaseUrl } from '../../config.js';
+
+
+function ProjectCard(props){
     const containerStyle = {
-        width: '390px',
         height: '175px',
         borderRadius: '20px',
         border: '0.5px solid rgba(0, 0, 0, 0.1)',
         background: '#FFFFFF',
         filter: 'drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.20))',
+        cursor: 'pointer',
     }
     const titleStyle = {
         textAlign: 'left',
-        marginLeft: "40px",
+        marginLeft: "30px",
         color: '#000',
         fontFamily: 'Exo, sans-serif',
         fontSize: '20px',
@@ -19,9 +24,7 @@ function WideWidget(props){
         lineHeight: 'normal'
     }
     const descriptionStyle = {
-        width: "329px",
-        height: "85px",
-        marginLeft: "40px",
+        marginLeft: "30px",
         textAlign: 'left',
         color: '#000',
         fontFamily: 'Exo, sans-serif',
@@ -32,7 +35,7 @@ function WideWidget(props){
     }
    
     return(
-        <div className='wide-grid-item' style={containerStyle} >
+        <div onClick={() => window.open(props.link, '_blank')} className='project-card' style={containerStyle} >
             <h3 id="project-title" style={titleStyle}>{props.title}</h3>
             <p id="project-desctiption" style={descriptionStyle}>{props.description}</p>
         </div>
@@ -40,71 +43,90 @@ function WideWidget(props){
 }
 
 function ProjectCardsGrid(props) {
+
+    const { widgets } = props;
+
+    if (widgets === null) {
+        // Return a loading state
+        return <div>Loading...</div>;
+      }
+    
+      if (!widgets || Object.keys(widgets).length === 0) {
+        // Handle the case when there is no data
+        return <div>No data available</div>;
+      }
+
+
     const gridStyle = {
-        width: '800px',
         display: 'grid',
-        gridTemplateColumns: 'auto auto',
-        gridTemplateRows: 'auto auto auto',
-        gridAutoFlow: 'column',
         rowGap: '20px',
         columnGap: '20px'
     };
-
+    
     return (
         <div id='grid' style={gridStyle}>
             {
-                Object.keys(props.widgets).map((widgetKey) => {
-                    const widget = props.widgets[widgetKey];
-                    let position = widget.position;
+                Object.keys(props.widgets).map((key) => {
+                    const widget = props.widgets[key];
                     let size = widget.size;
                     if (props.windowWidth < 1300) {
-                        position = widget.mPosition;
                         size = widget.mSize
                     }
+
                     return (
-                        <WideWidget
+                        
+                        <ProjectCard
                             key={widget.id}
-                            link={widget.link}
-                            startPosition={position}
+                            link={BaseUrl+'projects/'+widget.id}
                             title={widget.title}
                             description={widget.description}
                         />
                     );
-                }
-                )}
+                })
+            }
         </div>
     )
 }
 
 function ProjectCardsContainer() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [widgets, setWidgets] = useState(null);
+
     const updateWindowWidth = () => {
         setWindowWidth(window.innerWidth);
     };
     useEffect(() => {
         window.addEventListener('resize', updateWindowWidth);
 
+           // Fetch data from the backend
+        fetch(ApiBaseUrl+'projects-highlights')
+        .then(response => response.json())
+        .then(data => {setWidgets(data.widgets);})
+        .catch(error => {
+        console.error('Error fetching data:', error);
+        });
+
         return () => {
             window.removeEventListener('resize', updateWindowWidth);
         };
+
     }, []);
 
     const gridContainerStyle = {
-        width: '800px',
-        maxWidth: '800px',
-        maxHeight: '575px',
+        maxWidth: '100vw',
         display: 'flex',
         flexFlow: 'column',
         alignItems: 'center',
+        overflow: 'Scroll',
     };
 
     const gridGradientStyle = {
-        width: "803px",
-        height: "175px",
-        borderRadius: '20px',
-        background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.50) 0%, #0077B5 100%)',
+        width: "100%",
+        height: "50px",
+        borderRadius: '0 0 20px 20px',
+        background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.50) 0%, #bbb 100%)',
         position: 'relative',
-        top: '-175px',
+        top: '-45px',
         zIndex: '1',
     }
     const viewAllContainerStyle = {
@@ -115,8 +137,8 @@ function ProjectCardsContainer() {
         alignItems: 'flex-end'
     }
     const viewAllStyle = {
-        testAlign: 'center',
-        color: '#FFF',
+
+        color: '#000',
         fontFamily: 'Montserrat',
         fontSize: '20px',
         fontStyle: 'normal',
@@ -132,60 +154,8 @@ function ProjectCardsContainer() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 
-let widgets = {
-    '1': {
-        id:1,
-        title: 'Price Optimization Engine',
-        description: 'Give the sellers of any ecommerce platform accurate pricing estimation for maximum Profitability',
-        position: 1,
-    },
-    '2': {
-        id:2,
-        title: 'Price Optimization Engine',
-        description: 'Give the sellers of any ecommerce platform accurate pricing estimation for maximum Profitability',
-        position: 2,
-    },
-    '3': {
-        id:3,
-        title: 'Price Optimization Engine',
-        description: 'Give the sellers of any ecommerce platform accurate pricing estimation for maximum Profitability',
-        position: 2,
-    },
-    '4': {
-        id:4,
-        title: 'Price Optimization Engine',
-        description: 'Give the sellers of any ecommerce platform accurate pricing estimation for maximum Profitability',
-        position: 2,
-    },
-    '5': {
-        id:5,
-        title: 'Price Optimization Engine',
-        description: 'Give the sellers of any ecommerce platform accurate pricing estimation for maximum Profitability',
-        position: 2,
-    },
-    '6': {
-        id:6,
-        title: 'Price Optimization Engine',
-        description: 'Give the sellers of any ecommerce platform accurate pricing estimation for maximum Profitability',
-        position: 2,
-    },
-}
-
-/*
-let widget1 = {};
-
-fetch('http://localhost:8000/api/projects-highlights')
-    .then(response => response.json())
-    .then(data => {
-        widgets = data;
-        console.log("hello")
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
-    */
 export default ProjectCardsContainer;
