@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import TopBar from '../components/HomePage/TopBar';
+import Footer from '../components/HomePage/Footer';
 import '../css/DisplayBlog.css';
 
 import { useParams } from 'react-router-dom';
@@ -16,7 +17,7 @@ function DisplayBlog(){
 
     useEffect(() => {
         // fetch blog title and blogFile
-        fetch(ApiBaseUrl + 'blogs/' + blogId)
+        fetch(ApiBaseUrl + 'blog/' + blogId)
         .then(response => {
             if (response.status === 404) {
                 throw new Error('Blog Not Found');
@@ -54,6 +55,7 @@ function DisplayBlog(){
             <div id='blogs-container'>
                 <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdown}</ReactMarkdown>
             </div>
+            <Footer />
         </div>
     )
 }

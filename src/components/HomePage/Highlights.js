@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
 import '../../css/HighlightsRow.css';
+import { ApiBaseUrl } from '../../config';
+
 function HighlightsRow(props){
     const rowContainerStyle = {
-        height: "40px",
         margin: "8px 0",
         display: "flex",
         borderRadius: "10px",
@@ -12,22 +14,21 @@ function HighlightsRow(props){
     }
     const frontDesignStyle = {
         width: "10px",
-        height: "40px",
         borderRadius: "10px 0px 0px 10px",
         border: "1px solid rgba(0, 0, 0, 0.10)",
         background: "#767676",
         boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.20)",
     }
     const contentContainerStyle = {
-        height: "40px",
+        minHeight: "40px",
         display: "flex",
         alignItems: "center",
         paddingLeft: "20px",
     }
     const contentStyle = {
+        margin: "5px 0",
         color: "#000",
         fontFamily: "Open Sans",
-        fontSize: "16px",
         fontStyle: "normal",
         fontWeight: 400,
         lineHeight: "normal",
@@ -42,4 +43,30 @@ function HighlightsRow(props){
     )
 }
 
-export default HighlightsRow;
+function Highlights(props){
+    const [highlights, setHighlights] =useState(null);
+    useEffect(()=>{
+        fetch(ApiBaseUrl + "highlights")
+        .then(response => response.json())
+        .then(data => setHighlights(data.highlights))
+        .catch(error => console.error('Error fetching data:', error))
+    },[]);
+
+    if (highlights == null){
+        return (<div> Loading . . .</div>)
+    } 
+
+    return(
+        <>
+            {
+                Object.keys(highlights).map((key) => {
+                    return(
+                        <HighlightsRow key={highlights[key].time_stamp} content={highlights[key].content} link={highlights[key].link}/>
+                    )
+                })
+            }
+        </>
+    )
+}
+
+export default Highlights;

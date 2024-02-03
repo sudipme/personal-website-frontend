@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 import TopBar from '../components/HomePage/TopBar';
-import HighlightsRow from '../components/HomePage/HighlightsRow';
-import ProjectCards from '../components/HomePage/ProjectCards';
+import HighlightsRow from '../components/HomePage/Highlights';
+import {FeaturedProjects} from '../components/HomePage/FeaturedProjects';
+import Footer from '../components/HomePage/Footer';
 import FeaturedBlogs from '../components/HomePage/FeaturedBlogs';
-
 import '../css/HomePage.css';
+import { BaseUrl, ApiBaseUrl } from '../config.js';
 
 function HomePage() {
     const homePageStyle = {
@@ -23,13 +24,12 @@ function HomePage() {
             <Spacer height="20px" />
             <Heading content="Highlights" />
             
-            <HighlightsRow content="Won the Build for Bharat Hackathon Organized by ONDC" link="https://sudip.me"/>
-            <HighlightsRow content="Smart India Hackathon 2024 winner"/>
+            <HighlightsRow/>
 
             <Spacer height="20px" />
 
             <Heading content="Projects" />
-            <ProjectCards />
+            <FeaturedProjects />
             <Spacer height="20px" />
 
             <FeaturedBlogs />
@@ -40,12 +40,10 @@ function HomePage() {
 }
 
 function AboutMe() {
-    const containerStyle = {
-    }
+    const [aboutMeText, setAboutMeText] = useState("");
     const paragraphStyle = {
         color: "#000",
         fontFamily: "Raleway",
-        fontSize: "20px",
         fontStyle: "normal",
         fontWeight: "500",
         lineHeight: "normal",
@@ -54,16 +52,26 @@ function AboutMe() {
         display: "block",
         lineHeight: "40px",
     }
+    
+    useEffect(() => {
+        fetch(ApiBaseUrl + 'about-me-text')
+        .then(response => response.json())
+        .then(data => {
+            setAboutMeText(data.about_me);
+        })
+    }, [])
+
+    useEffect(() => {
+        if(aboutMeText !== ""){
+            document.getElementById('about-me').innerHTML = aboutMeText.replace(/\n/g, "<br>");
+        }
+    })
 
     return (
-        <div id='about-me-container' style={containerStyle}>
+        <div id='about-me-container'>
 
             <p id='about-me' style={paragraphStyle}>
                 <span style={firstLineStyle}>Hi, I am Sudip.</span>
-                I am a Full Stack Developer and a Machine Learning enthusiast.
-                Currently I am persuing my Computer Science undergraduate degree from Indian Institute of Information Technology SriCity. 
-                I enjoy taking part in coding contests and actively learning about Machine Learning and Data Science.
-
             </p>
         </div>
     )
@@ -73,14 +81,13 @@ function Heading(props){
     const headingStyle = {
         color: "#888", //#004061
         fontFamily: "Raleway",
-        fontSize: "28px",
         fontStyle: "normal",
         fontWeight: "600",
         lineHeight: "normal",
     }
     return (
         <div id="heading-container">
-            <h1 id="heading-style" style={headingStyle}>{props.content}</h1>
+            <h1 id="heading" style={headingStyle}>{props.content}</h1>
         </div>
     )
 }
@@ -95,28 +102,6 @@ function Spacer(props){
 }
 
 
-function Footer (){
-    const footerContainerStyle = {
-        width: "100vw",
-        height: "50px",
-        backgroundColor: "#252A30",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-    }
-    const contentStyle = {
-        color: "#fff",
-        fontFamily: "Open Sans",
-        fontSize: "14px",
-        fontStyle: "normal",
-        fontWeight: "400",
-        lineHeight: "normal",
-    }
-    return (
-        <div id="footer-container" style={footerContainerStyle} >
-            <p style={contentStyle}>© Copyright 2024 Sudip Halder </p>
-        </div>
-    )
-}
+
 
 export default HomePage;

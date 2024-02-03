@@ -1,19 +1,28 @@
-#blogs-row-container{
+#featured-blogs-row-container{
     width: 80vw;
+    margin: 10px 0px;
 }
-
-#blogs-row-container:hover #blog-title{
+#featured-blog-title{
+    font-size: 24px;
     color: #005985;
+}
+#featured-blogs-row-container:hover #featured-blog-title{
+    color: #007fbe; 
     
 }
-#blog-description{
+#featured-blog-description{
     width: 80vw;
+    font-size: 18px;
 }
 @media screen and (max-width: 768px){
-    #blogs-row-container{
+    #featured-blogs-row-container{
         width: 90vw;
     }
-    #blog-description{
+    #featured-blog-title{
+        font-size: 20px;
+    }
+    #featured-blog-description{
         width: 85vw;
+        font-size: 14px;
     }
 }

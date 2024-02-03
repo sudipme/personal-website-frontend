@@ -8,6 +8,10 @@
 }
 #about-me{
     width: 50vw;
+    font-size: 20px;
+}
+#heading{
+    font-size: 28px;
 }
 @media screen and (max-width: 768px){
     #about-me-container{
@@ -18,5 +22,9 @@
     }
     #about-me{
         width: 85vw;
+        font-size: 14px;
+    }
+    #heading{
+        font-size: 24px;
     }
 }

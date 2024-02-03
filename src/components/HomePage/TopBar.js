@@ -2,6 +2,7 @@ import "../../css/TopBar.css";
 import SendMailLogo from "../../assets/icons/send-mail.svg"
 import XLogo from "../../assets/icons/x-logo.svg"
 import GithubLogo from "../../assets/icons/github-logo.svg"
+import { BaseUrl} from '../../config.js';
 
 
 function TopBar() {
@@ -28,6 +29,7 @@ function TopBar() {
         fontStyle: "normal",
         fontWeight: "500",
         lineHeight: "normal",
+        cursor: "pointer",
     }
     const topLineStyle = {
         height: "2px",
@@ -36,7 +38,7 @@ function TopBar() {
     return (
         <div id="top-bar-container" style={containerStyle} >
             <div id="top-bar-elements-container" style={elementsContainerStyle} >
-                <h1 id="top-bar-title" style={titleStyle}>Sudip Halder</h1>
+                <h1 id="top-bar-title" style={titleStyle} onClick={() => window.location.href = BaseUrl}>Sudip Halder</h1>
                 <SocialLinks />
             </div>
             <div id="top-line" style={topLineStyle}></div>

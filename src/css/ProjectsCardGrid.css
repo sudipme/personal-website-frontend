@@ -1,6 +1,5 @@
 #grid{
     grid-template-columns: 390px 390px 390px;
-    
 }
 
 #project-desctiption{
@@ -9,7 +8,10 @@
 
 @media screen and (max-width: 1300px){
     #grid{
-        grid-template-columns: 360px 360px; 
+        grid-template-columns: 350px 350px; 
+    }
+    #project-desctiption{
+        width: 300px;
     }
 }
 @media screen and (max-width: 768px){

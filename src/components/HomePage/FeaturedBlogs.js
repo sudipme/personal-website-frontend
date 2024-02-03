@@ -8,27 +8,27 @@ function BlogsRow(props){
         cursor: "pointer",
     }
     const blogTitleStyle = {
+        margin: "5px 0px",
         textAlign: "left",
         fontFamily: "Exo",
-        fontSize: "24px",
         fontStyle: "normal",
         fontWeight: "400",
         lineHeight: "normal",
     }
     const blogDescriptionStyle = {
+        margin: "5px 0px",
         textAlign: "left",
         color: "#000",
         fontFamily: "Exo 2",
-        fontSize: "18px",
         fontStyle: "normal",
         fontWeight: "400",
         lineHeight: "normal",
     }
 
     return (
-        <div id="blogs-row-container" style={blogRowContainerStyle} onClick={() => window.open(props.link, '_blank')}>
-            <h2 id="blog-title" style={blogTitleStyle}>{props.title}</h2>
-            <h3 id="blog-description" style={blogDescriptionStyle}>{props.description}</h3>
+        <div id="featured-blogs-row-container" style={blogRowContainerStyle} onClick={() => window.open(props.link, '_blank')}>
+            <h2 id="featured-blog-title" style={blogTitleStyle}>{props.title}</h2>
+            <h3 id="featured-blog-description" style={blogDescriptionStyle}>{props.description}</h3>
             
         </div>
     )
@@ -92,7 +92,7 @@ function FeaturedBlogs(){
                 Object.keys(FeaturedBlogs).map((key) => {
                     return (
                         <BlogsRow
-                            key={FeaturedBlogs[key].id}
+                            key={FeaturedBlogs[key].time_stamp}
                             link={BaseUrl+'blogs/'+FeaturedBlogs[key].blog_id}
                             title={FeaturedBlogs[key].blog_title}
                             description={FeaturedBlogs[key].blog_description}
@@ -101,7 +101,7 @@ function FeaturedBlogs(){
                 })
             }
             <div id='view-all-container' style={viewAllContainerStyle}>
-                <p style={viewAllStyle} onClick={() => window.open(BaseUrl+'blogs', '_blank')}>View all</p>
+                <p style={viewAllStyle} onClick={() => window.location.href=(BaseUrl+'blogs')}>View all</p>
             </div>
         </div>
     )

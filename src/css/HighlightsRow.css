@@ -1,9 +1,12 @@
 #row-container{
-    width: 60vw;
-    max-width: 1100px;
+    width: 80vw;
+
 }
 #content-container{
-    width: 80%;
+    width: 90%;
+}
+#content{
+    font-size: 18px;
 }
 @media screen and (max-width: 768px){
     #row-container{
@@ -11,6 +14,9 @@
     }
     #content-container{
         width: 90%;
+    }
+    #content{
+        font-size: 16px;
     }
     
 }
