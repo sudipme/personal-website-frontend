@@ -43,7 +43,7 @@ function CreateBlog() {
   useEffect(() => {
     const checkAuthentication = async () => {
       try {
-        const response = await fetch('http://localhost:8000/is-authenticated', {
+        const response = await fetch(ApiBaseUrl+'is-authenticated', {
           credentials: 'include', 
         });
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BaseUrl,ApiBaseUrl } from '../config';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -12,7 +13,7 @@ function LoginPage() {
     const checkAuthentication = async () => {
       try {
         // Make a request to a protected endpoint to check the user's authentication status
-        const response = await fetch('http://localhost:8000/is-authenticated', {
+        const response = await fetch(ApiBaseUrl+'is-authenticated', {
           credentials: 'include', // Include credentials (HttpOnly cookie)
         });
 
@@ -43,7 +44,7 @@ function LoginPage() {
     formData.append('password', password);
 
     try{
-    const response = await fetch('http://localhost:8000/login', {
+    const response = await fetch(ApiBaseUrl+'login', {
       method: 'POST',
       credentials: 'include',
       body: formData,
@@ -62,7 +63,7 @@ function LoginPage() {
   };
 
   const handleLogout = async () => {
-    await fetch('http://localhost:8000/logout', {
+    await fetch(ApiBaseUrl+'logout', {
       method: 'POST',
       credentials: 'include'
     });

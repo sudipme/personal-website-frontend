@@ -8,7 +8,6 @@ import DisplayBlog from './pages/DisplayBlog';
 import CreateContent from './pages/CreateContent';
 import BlogsPage from './pages/BlogsPage';
 import ProjectsPage from './pages/ProjectsPage';
-import MyPage from './pages/MyPage';
 import LoginPage from './pages/LoginPage';
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
         <Route exact path='/blogs/:blogId' element={<DisplayBlog/>} />
         <Route exact path='/blogs' element={<BlogsPage/>} />
         <Route exact path='/create-content' element={<CreateContent/>} />
-        <Route exact path='/mypage' element={<MyPage/>} />
         <Route exact path='/login' element={<LoginPage/>} />
         
         <Route path="*" element={<NotFound/>}/>
