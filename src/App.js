@@ -5,9 +5,11 @@ import HomePage from './pages/HomePage';
 import NotFound from './pages/NotFound';
 import SendMail from './pages/SendMail';
 import DisplayBlog from './pages/DisplayBlog';
-import CreateBlog from './pages/CreateBlog';
+import CreateContent from './pages/CreateContent';
 import BlogsPage from './pages/BlogsPage';
 import ProjectsPage from './pages/ProjectsPage';
+import MyPage from './pages/MyPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
         <Route exact path='/mail' element={<SendMail/>} />
         <Route exact path='/blogs/:blogId' element={<DisplayBlog/>} />
         <Route exact path='/blogs' element={<BlogsPage/>} />
-        <Route exact path='/create-blog' element={<CreateBlog/>} />
+        <Route exact path='/create-content' element={<CreateContent/>} />
+        <Route exact path='/mypage' element={<MyPage/>} />
+        <Route exact path='/login' element={<LoginPage/>} />
         
         <Route path="*" element={<NotFound/>}/>
       </Routes>

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BaseUrl, ApiBaseUrl } from '../config.js';
+import { useNavigate } from 'react-router-dom';
 import '../css/CreateBlog.css'
 
 function redirectTo(link){window.location.href = link;}
 
 function CreateBlog() {
-  const [formMode, setFormMode] = useState('Create Blog'); // ['create-blog', 'update-blog', 'create-project', 'update-project'
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const [formMode, setFormMode] = useState('Create Blog');
   const [title, setTitle] = useState('');
   const [uniqueLinkId, setUniqueLinkId] = useState('');
   const [description, setDescription] = useState('');
@@ -36,10 +38,44 @@ function CreateBlog() {
   
   const [submited, setSubmited] = useState(false);
 
+  const navigate = useNavigate();
 
-  // fetching all bogs data
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/is-authenticated', {
+          credentials: 'include', 
+        });
+
+        if (response.ok) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+        }
+      } catch (error) {
+        console.error('Error checking authentication:', error);
+        setIsAuthenticated(false);
+      }
+    };
+    checkAuthentication();
+  }, []);
+
+  useEffect(() => {
+    if (isAuthenticated === null) {
+      return;
+    }
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [isAuthenticated]);
+
+
+  
   useEffect(()=>{
-    fetch(ApiBaseUrl+'get-all-blogs' )
+
+    if(isAuthenticated){
+    // fetching all bogs data
+    fetch(ApiBaseUrl+'get-all-blogs')
     .then(response => response.json())
     .then(data => {
         setBlogs(data.blogs); 
@@ -47,11 +83,9 @@ function CreateBlog() {
     .catch(error => {
     console.error('Error fetching data:', error);
     });
-  },[submited])
 
-  // fetching all bogs data
-  useEffect(()=>{
-    fetch(ApiBaseUrl+'get-all-projects' )
+    // fetching all bogs data
+    fetch(ApiBaseUrl+'get-all-projects')
     .then(response => response.json())
     .then(data => {
         setProjects(data.projects); 
@@ -59,10 +93,9 @@ function CreateBlog() {
     .catch(error => {
     console.error('Error fetching data:', error);
     });
-  },[submited])
 
-  useEffect(()=>{
-    fetch(ApiBaseUrl+'highlights' )
+    // fetch highlights
+    fetch(ApiBaseUrl+'highlights')
     .then(response => response.json())
     .then(data => {
         setHighlights(data.highlights); 
@@ -70,7 +103,9 @@ function CreateBlog() {
     .catch(error => {
     console.error('Error fetching data:', error);
     });
-  },[submited])
+  }
+  },[submited, isAuthenticated])
+
 
   useEffect(()=>{
     if(isHighlight){
@@ -225,6 +260,7 @@ function CreateBlog() {
         const response = await fetch(endpoint, {
             method: "POST",
             body: formData,
+            credentials: 'include',
         });
         console.log("Form Data:");
         for (let pair of formData.entries()) {
@@ -259,11 +295,11 @@ function CreateBlog() {
                 document.getElementById('file-selector').value = '';
             }
         }else { 
-            setResponseMessage("Something went wrong! 1"+response.error);
+            setResponseMessage("Something went wrong!");
             setColor('red');
         }
     }catch(error){
-      setResponseMessage("Something went wrong! 2 " + error);
+      setResponseMessage("Something went wrong!");
       setColor('red');
     }
     setSubmited(true);
