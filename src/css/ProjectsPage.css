@@ -1,0 +1,47 @@
+#projects-container{
+    width: 100vw;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#pagination-container{
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    bottom: 0px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ddd;
+}
+.pagination-button{
+    width: 90px;
+    height: 30px;
+    margin: 0px 50px;
+
+    border-radius: 20px;
+    border: none;
+    background-color: #888;
+
+    font-weight: 600;
+    color: #fff;
+    font-size: 16px;
+}
+#page-counter{
+    width: 100px;
+    text-align: center;
+}
+@media screen and (max-width: 768px){
+
+    #pagination-container{
+        height: 40px;
+    }
+
+    .pagination-button{
+        margin: 0px 20px;
+        height: 30px;
+    }
+}

@@ -1,228 +1,107 @@
 import React, { useState, useEffect } from 'react';
 
-import { SmallWidget, WideWidget } from '../components/HomePage/LinkWidgets';
-import NavLink from '../components/HomePage/NavLinks';
-
+import TopBar from '../components/HomePage/TopBar';
+import HighlightsRow from '../components/HomePage/Highlights';
+import {FeaturedProjects} from '../components/HomePage/FeaturedProjects';
+import Footer from '../components/HomePage/Footer';
+import FeaturedBlogs from '../components/HomePage/FeaturedBlogs';
 import '../css/HomePage.css';
-
-import displayImg from '../images/my-image.jpeg';
-import instagramLogo from '../images/icons/instagram-logo.svg';
-import twitter_logo from '../images/icons/twitter_logo.svg';
-import linkedinLogo from '../images/icons/linkedin-logo.svg';
-import mediumLogo from '../images/icons/medium-logo.svg';
-import githubLogo from '../images/icons/github-logo.svg';
-import leetcodeLogo from '../images/icons/leetcode-logo.png';
-import codeforcesLogo from '../images/icons/codeforces-transparent.png';
-import codechefLogo from '../images/icons/codechef-non-transparent.png';
-import kaggleLogo from '../images/icons/kaggle-logo.png';
-
+import { BaseUrl, ApiBaseUrl } from '../config.js';
 
 function HomePage() {
+    const homePageStyle = {
+        width: "100vw",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+    }
     return (
-        <div id='home-page'>
-            <AboutMePanel />
-            <WidgetsPanel />
+        <div id='home-page' style={homePageStyle}>
+            <TopBar />
+            <Spacer height="20px" />
+
+            <AboutMe />
+            <Spacer height="20px" />
+            <Heading content="Highlights" />
+            
+            <HighlightsRow/>
+
+            <Spacer height="20px" />
+
+            <Heading content="Projects" />
+            <FeaturedProjects />
+            <Spacer height="20px" />
+
+            <FeaturedBlogs />
+
+            <Footer />
         </div>
     )
 }
 
-function AboutMePanel() {
-    return (
-        <div id='aboutme-panel'>
-            <div id='aboutme-box'>
-                <div id='my-intro-box'>
-                    <img id='display-img' src={displayImg} alt='sudip halder'></img>
-                    <h1 id='my-name'>Sudip Halder</h1>
-                    <p id='aboutme'>
-                        Hi, I am Sudip.
-                        <br></br>
-                        I am a Computer Science undergrad.
-
-                        I enjoy taking part in coding contests and actively learning about Machine Learning and Data Science.
-                        <br></br>
-                    </p>
-                </div>
-                <div id='nav-links-box'>
-                    <NavLink widgetTitle={"Projects"} link="https://sudip.me/projects" />
-                    <NavLink widgetTitle={"Blogs"} link="https://sudipme.medium.com" />
-                    <NavLink widgetTitle={"Send a mail"} link="https://sudip.me/mail" />
-                </div>
-            </div>
-        </div> 
-    )
-}
-
-function DisplayGrid(props) {
-    return (
-        <div id='widget-grid'>
-            {
-                Object.keys(props.widgets).map((widgetKey) => {
-                    const widget = props.widgets[widgetKey];
-                    let position = widget.position;
-                    let size = widget.size;
-                    if (props.windowWidth < 1300) {
-                        position = widget.mPosition;
-                        size = widget.mSize
-                    }
-                    if (size === "small") {
-                        return (
-                            <SmallWidget
-                                key={widget.title}
-                                link={widget.link}
-                                startPosition={position}
-                                color={widget.color}
-                                src={widget.icon}
-                                widgetTitle={widget.title}
-                                userId={widget.userId} />
-                        );
-                    } else if (size === "wide") {
-                        return (
-                            <WideWidget
-                                key={widget.title}
-                                link={widget.link}
-                                startPosition={position}
-                                color={widget.color}
-                                src={widget.icon}
-                                widgetTitle={widget.title}
-                                userId={widget.userId} />
-                        );
-                    }
-                    return (null);
-                }
-                )}
-        </div>
-    )
-}
-
-function WidgetsPanel() {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const updateWindowWidth = () => {
-        setWindowWidth(window.innerWidth);
-    };
+function AboutMe() {
+    const [aboutMeText, setAboutMeText] = useState("");
+    const paragraphStyle = {
+        color: "#000",
+        fontFamily: "Raleway",
+        fontStyle: "normal",
+        fontWeight: "500",
+        lineHeight: "normal",
+    }
+    const firstLineStyle = {
+        display: "block",
+        lineHeight: "40px",
+    }
+    
     useEffect(() => {
-        window.addEventListener('resize', updateWindowWidth);
+        fetch(ApiBaseUrl + 'about-me-text')
+        .then(response => response.json())
+        .then(data => {
+            setAboutMeText(data.about_me);
+        })
+    }, [])
 
-        // Remove the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('resize', updateWindowWidth);
-        };
-    }, []);
+    useEffect(() => {
+        if(aboutMeText !== ""){
+            document.getElementById('about-me').innerHTML = aboutMeText.replace(/\n/g, "<br>");
+        }
+    })
 
     return (
-        <div id='widgets-panel'>
-            <div style={{ height: "50px" }}></div>
-            <p id='widget-panel-heading'>Links 🔗</p>
-            <DisplayGrid widgets={widgets} windowWidth={windowWidth} />
+        <div id='about-me-container'>
 
-            <DisplayGrid widgets={profiles} windowWidth={windowWidth} />
+            <p id='about-me' style={paragraphStyle}>
+                <span style={firstLineStyle}>Hi, I am Sudip.</span>
+            </p>
         </div>
     )
 }
 
-let widgets = {
-    twitter: {
-        size: "small",
-        mSize: "small",
-        position: 1,
-        mPosition: 1,
-        color: "#E9F4FC",
-        link: "https://x.com/sudiphl",
-        icon: twitter_logo,
-        title: "twitter",
-        userId: "@sudiphl",
-    },
-    linkedin: {
-        size: "small",
-        mSize: "small",
-        position: 2,
-        mPosition: 2,
-        color: "#E9F4FC",
-        link: "https://linkedin.com/in/sudiphalder",
-        icon: linkedinLogo,
-        title: "LinkedIn",
-        userId: "@sudiphalder",
-    },
-    instagram: {
-        size: "small",
-        mSize: "small",
-        position: 3,
-        mPosition: 1,
-        color: "#FFFFFF",
-        link: "https://instagram.com/sudiphl",
-        icon: instagramLogo,
-        title: "Instagram",
-        userId: "@sudiphl",
-    },
-    medium: {
-        size: "small",
-        mSize: "small",
-        position: 4,
-        mPosition: 2,
-        color: "#FFFFFF",
-        link: "https://sudipme.medium.com",
-        icon: mediumLogo,
-        title: "Medium",
-        userId: "@sudipme",
-    },
+function Heading(props){
+    const headingStyle = {
+        color: "#888", //#004061
+        fontFamily: "Raleway",
+        fontStyle: "normal",
+        fontWeight: "600",
+        lineHeight: "normal",
+    }
+    return (
+        <div id="heading-container">
+            <h1 id="heading" style={headingStyle}>{props.content}</h1>
+        </div>
+    )
 }
 
-let profiles = {
-    github: {
-        size: "wide",
-        mSize: "wide",
-        position: 1,
-        mPosition: 1,
-        color: "#FFFFFF",
-        link: "https://github.com/sudipme",
-        icon: githubLogo,
-        title: "GitHub",
-        userId: "@sudipme",
-    },
-    kaggle: {
-        size: "small",
-        mSize: "small",
-        position: 3,
-        mPosition: 1,
-        color: "#FFFFFF",
-        link: "https://kaggle.com/sudipme",
-        icon: kaggleLogo,
-        title: "Kaggle",
-        userId: "@sudipme",
-    },
-    codechef: {
-        size: "small",
-        mSize: "small",
-        position: 4,
-        mPosition: 2,
-        color: "#FFFFFF",
-        link: "https://codechef.com/users/sudiphalder",
-        icon: codechefLogo,
-        title: "CodeChef",
-        userId: "@sudiphalder",
-    },
-    codeforces: {
-        size: "wide",
-        mSize: "wide",
-        position: 3,
-        mPosition: 1,
-        color: "#FFFFFF",
-        link: "https://codeforces.com/profile/sudipme",
-        icon: codeforcesLogo,
-        title: "CodeForces",
-        userId: "@sudipme",
-    },
-    leetcode: {
-        size: "wide",
-        mSize: "wide",
-        position: 1,
-        mPosition: 1,
-        color: "#FFFFFF",
-        link: "https://leetcode.com/sudip_halder",
-        icon: leetcodeLogo,
-        title: "Leetcode",
-        userId: "@sudip_halder",
-    },
-
+function Spacer(props){
+    const spacerStyle = {
+        height: props.height,
+    }
+    return(
+        <div id="spacer" style={spacerStyle}></div>
+    )
 }
+
+
+
 
 export default HomePage;
