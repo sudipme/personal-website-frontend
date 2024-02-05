@@ -4,7 +4,7 @@ import { BaseUrl, ApiBaseUrl } from '../../config.js';
 
 function BlogsRow(props){
     const blogRowContainerStyle = {
-        overflow: "scroll",
+        overflow: 'hidden',
         cursor: "pointer",
     }
     const blogTitleStyle = {
@@ -58,6 +58,7 @@ function FeaturedBlogs(){
         judtifyContent: "center",
         alignItems: "center",
         backgroundColor: "#ddd",
+        overflow: 'hidden',
     }
     const blogsContainerTitleStyle = {
         textAlign: "center",

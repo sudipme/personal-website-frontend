@@ -21,7 +21,6 @@ function App() {
         <Route exact path='/blogs' element={<BlogsPage/>} />
         <Route exact path='/create-content' element={<CreateContent/>} />
         <Route exact path='/login' element={<LoginPage/>} />
-        
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
