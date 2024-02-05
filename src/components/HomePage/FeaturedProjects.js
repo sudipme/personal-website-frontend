@@ -29,7 +29,7 @@ export function FeaturedProjects() {
         display: 'flex',
         flexFlow: 'column',
         alignItems: 'center',
-        overflow: 'Scroll',
+        overflow: 'hidden',
     };
 
     const viewAllContainerStyle = {
