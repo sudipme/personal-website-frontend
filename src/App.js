@@ -1,14 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './css/App.css';
-import HomePage from './pages/HomePage';
-import NotFound from './pages/NotFound';
-import SendMail from './pages/SendMail';
-import DisplayBlog from './pages/DisplayBlog';
-import CreateContent from './pages/CreateContent';
-import BlogsPage from './pages/BlogsPage';
-import ProjectsPage from './pages/ProjectsPage';
-import LoginPage from './pages/LoginPage';
+
+const HomePage = React.lazy(() => import('./pages/HomePage'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
+const SendMail = React.lazy(() => import('./pages/SendMail'));
+const DisplayBlog = React.lazy(() => import('./pages/DisplayBlog'));
+const CreateContent = React.lazy(() => import('./pages/CreateContent'));
+const BlogsPage = React.lazy(() => import('./pages/BlogsPage'));
+const ProjectsPage = React.lazy(() => import('./pages/ProjectsPage'));
+const MyPage = React.lazy(() => import('./pages/MyPage'));
+const LoginPage = React.lazy(() => import('./pages/LoginPage'));
 
 function App() {
   return (

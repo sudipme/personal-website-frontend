@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../../css/HighlightsRow.css';
 import { ApiBaseUrl } from '../../config';
+import LoadingAnimation from '../LoadingAnimation';
 
 function HighlightsRow(props){
     const rowContainerStyle = {
@@ -51,19 +52,20 @@ function Highlights(props){
         .then(data => setHighlights(data.highlights))
         .catch(error => console.error('Error fetching data:', error))
     },[]);
-
-    if (highlights == null){
-        return (<div> Loading . . .</div>)
-    } 
+    
+    useEffect(()=>{
+        if(highlights!==null){props.componentLoaded();}
+    },[highlights])
 
     return(
         <>
-            {
-                Object.keys(highlights).map((key) => {
-                    return(
-                        <HighlightsRow key={highlights[key].time_stamp} content={highlights[key].content} link={highlights[key].link}/>
-                    )
-                })
+            { 
+            highlights === null ? <LoadingAnimation/> :
+            Object.keys(highlights).map((key) => {
+                return(
+                    <HighlightsRow key={highlights[key].time_stamp} content={highlights[key].content} link={highlights[key].link}/>
+                )
+            })
             }
         </>
     )

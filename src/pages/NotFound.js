@@ -1,6 +1,6 @@
 import React from "react";
 import '../css/NotFound.css'
-import pageNotFoundImg from '../assets/page-not-found-img.png';
+import pageNotFoundImg from '../assets/page-not-found-img.webp';
 import {BaseUrl} from '../config'
 
 function NotFound(){

@@ -1,10 +1,5 @@
-/* Add this at the top of your index.css file */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 #about-me-container{
     width: 70vw;
-    padding-left: 100px,
 }
 #about-me{
     width: 50vw;
@@ -22,7 +17,7 @@
     }
     #about-me{
         width: 85vw;
-        font-size: 14px;
+        font-size: 16px;
     }
     #heading{
         font-size: 24px;

@@ -1,41 +1,69 @@
 import React, { useState, useEffect } from 'react';
 
-import TopBar from '../components/HomePage/TopBar';
+import LoadingAnimation  from '../components/LoadingAnimation.js';
+import TopBar from '../components/TopBar.js';
 import HighlightsRow from '../components/HomePage/Highlights';
 import {FeaturedProjects} from '../components/HomePage/FeaturedProjects';
-import Footer from '../components/HomePage/Footer';
 import FeaturedBlogs from '../components/HomePage/FeaturedBlogs';
+import Footer from '../components/Footer.js';
 import '../css/HomePage.css';
-import { BaseUrl, ApiBaseUrl } from '../config.js';
+import {ApiBaseUrl} from '../config.js';
+
 
 function HomePage() {
+    const [isHighlightsLoaded, setIsHighlightsLoaded] = useState(false);
+    const [isFeaturedProjectsLoaded, setIsFeaturedProjectsLoaded] = useState(false);
+    const [isFeaturedBlogsLoaded, setIsFeaturedBlogsLoaded] = useState(false);
+    const highlightsLoaded = () => {setIsHighlightsLoaded(true);}
+    const featuredProjectsLoaded = () => {setIsFeaturedProjectsLoaded(true);}
+    const featuredBlogsLoaded = () => {setIsFeaturedBlogsLoaded(true);}
+
+    let everythingLoaded = isHighlightsLoaded && isFeaturedProjectsLoaded && isFeaturedBlogsLoaded;
+
     const homePageStyle = {
         width: "100vw",
+        minHeight:"100vh",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "flex-around",
+        alignItems: "center",
+        overflow: "hidden",
+    }
+
+    const loadingAnimationContainerStyle = {
+        width:"100vw",
+        height:"100vh",
+        display:"flex",
+        justifyContent: "center",
         alignItems: "center",
     }
+
     return (
-        <div id='home-page' style={homePageStyle}>
+    <>
+        <div style={everythingLoaded ?{ display: "none" } :loadingAnimationContainerStyle }>
+            <LoadingAnimation/>
+        </div>
+
+        <div id='home-page'  style={everythingLoaded ? homePageStyle : { display: "none" }}>
             <TopBar />
             <Spacer height="20px" />
 
+            <div ></div>
             <AboutMe />
             <Spacer height="20px" />
+
             <Heading content="Highlights" />
-            
-            <HighlightsRow/>
+            <HighlightsRow componentLoaded={highlightsLoaded}/>
 
             <Spacer height="20px" />
 
             <Heading content="Projects" />
-            <FeaturedProjects />
+            <FeaturedProjects componentLoaded={featuredProjectsLoaded} />
             <Spacer height="20px" />
-
-            <FeaturedBlogs />
-
+            <FeaturedBlogs conponentLoaded={featuredBlogsLoaded} />
             <Footer />
         </div>
+        </>
     )
 }
 
@@ -100,8 +128,5 @@ function Spacer(props){
         <div id="spacer" style={spacerStyle}></div>
     )
 }
-
-
-
 
 export default HomePage;

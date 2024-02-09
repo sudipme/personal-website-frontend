@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../css/ProjectsCardGrid.css';
-import { BaseUrl, ApiBaseUrl } from '../../config.js';
+import '../css/ProjectsCardGrid.css';
+import { BaseUrl, ApiBaseUrl } from '../config.js';
 
 function ProjectCard(props){
     const containerStyle = {
@@ -10,6 +10,7 @@ function ProjectCard(props){
         background: '#FFFFFF',
         filter: 'drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.20))',
         cursor: 'pointer',
+        overflow: 'hidden',
     }
     const titleStyle = {
         textAlign: 'left',

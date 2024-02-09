@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ProjectsCardGrid from './ProjectsCardGrid';
-
+import ProjectsCardGrid from '../ProjectsCardGrid.js';
+import LoadingAnimation from '../LoadingAnimation.js';
 import { BaseUrl, ApiBaseUrl } from '../../config.js';
 
-export function FeaturedProjects() {
+export function FeaturedProjects(props) {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [projects, setProjects] = useState(null);
 
@@ -54,15 +54,18 @@ export function FeaturedProjects() {
         fontWeight: 600,
         lineHeight: 'normal'
     }
+    useEffect(()=>{
+        if(projects!==null){props.componentLoaded();}
+    },[projects])
     return (
+        <>{
+        projects === null ? <LoadingAnimation/>  :
         <div id='grid-container' style={gridContainerStyle}>
-            <ProjectsCardGrid projects={projects} windowWidth={windowWidth} />
-            <div onClick={() => window.location.href = (BaseUrl+'projects')} style={viewAllContainerStyle}>
-                <p style={viewAllStyle}>View all</p>
-            </div>
+        <><ProjectsCardGrid projects={projects} windowWidth={windowWidth} />
+        <div onClick={() => window.location.href = (BaseUrl+'projects')} style={viewAllContainerStyle}>
+            <p style={viewAllStyle}>View all</p>
+        </div></>
         </div>
+        }</>
     );
 }
-
-
-

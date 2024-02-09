@@ -1,8 +1,8 @@
-import "../../css/TopBar.css";
-import SendMailLogo from "../../assets/icons/send-mail.svg"
-import XLogo from "../../assets/icons/x-logo.svg"
-import GithubLogo from "../../assets/icons/github-logo.svg"
-import { BaseUrl} from '../../config.js';
+import "../css/TopBar.css";
+import SendMailLogo from "../assets/icons/send-mail.svg"
+import XLogo from "../assets/icons/x-logo.svg"
+import GithubLogo from "../assets/icons/github-logo.svg"
+import { BaseUrl} from '../config.js';
 
 
 function TopBar() {

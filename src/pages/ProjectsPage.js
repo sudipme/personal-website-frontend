@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BaseUrl, ApiBaseUrl } from '../config.js';
-import TopBar from '../components/HomePage/TopBar';
-import ProjectsCardGrid from '../components/HomePage/ProjectsCardGrid.js';
+import TopBar from '../components/TopBar';
+import ProjectsCardGrid from '../components/ProjectsCardGrid.js';
+import LoadingAnimation from '../components/LoadingAnimation.js';
 import '../css/ProjectsPage.css'
 
 function ProjectsPage(props){
@@ -31,21 +32,20 @@ function ProjectsPage(props){
 
     }, [pageNumber]);
 
-    if (projects == null){
-        return (
-            <>
-                <TopBar/>
-                <h1>Loading . . .</h1>
-            </>
-        )
-    } 
+    const loadingAnimationContainerStyle ={
+        width: "100vw",
+        height: "calc(100vh - 165px",
+    }
 
     return (
         <div id="projects-page-container">
             <TopBar/>
+            {
+            projects === null ? <div style={loadingAnimationContainerStyle} > <LoadingAnimation/> </div> :
             <div id="projects-container">
                 <ProjectsCardGrid windowWidth={windowWidth} projects={projects} />
             </div>
+            }
             <div id="pagination-container">
                 <button className='pagination-button' onClick={() => setPageNumber(pageNumber-1)} disabled={pageNumber === 0}>Previous</button>
                 <h3 id='page-counter' >({pageNumber+1} / {totalPages} )</h3>
