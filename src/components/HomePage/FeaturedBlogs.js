@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import '../../css/FeaturedBlogs.css';
 import { BaseUrl, ApiBaseUrl } from '../../config.js';
+import LoadingAnimation from '../LoadingAnimation.js';
 
 function BlogsRow(props){
     const blogRowContainerStyle = {
-        overflow: "scroll",
+        overflow: "hidden",
         cursor: "pointer",
     }
     const blogTitleStyle = {
@@ -34,7 +35,7 @@ function BlogsRow(props){
     )
 }
 
-function FeaturedBlogs(){
+function FeaturedBlogs(props){
     const [FeaturedBlogs, setFeaturedBlogs] = useState(null);
     useEffect(() => {
 
@@ -47,23 +48,20 @@ function FeaturedBlogs(){
 
     }, []);
 
-    if (FeaturedBlogs == null){
-        return (<div> Loading . . .</div>)
-    } 
-
     const blogsContainerStyle = {
         width: "100vw",
         display: "flex",
         flexDirection: "column",
-        judtifyContent: "center",
+        judtifyContent: "space-between",
         alignItems: "center",
         backgroundColor: "#ddd",
+        overflow: "hidden",
     }
     const blogsContainerTitleStyle = {
         textAlign: "center",
         color: "#000",
         fontFamily: "Raleway",
-        fontSize: "36px",
+        margin: "10px",
         fontStyle: "normal",
         fontWeight: "400",
         lineHeight: "normal",
@@ -71,6 +69,7 @@ function FeaturedBlogs(){
     const viewAllContainerStyle = {
         width: '100vw',
         height: '50px',
+        margin: '10px 0 5px 0',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'flex-end'
@@ -85,25 +84,30 @@ function FeaturedBlogs(){
         lineHeight: 'normal',
         cursor: 'pointer',
     }
+    useEffect(()=>{
+        if(FeaturedBlogs!==null){props.conponentLoaded();}
+    },[FeaturedBlogs])
     return(
-        <div id="blogs-container" style={blogsContainerStyle}>
+        <>
+            {FeaturedBlogs === null ? <LoadingAnimation/> :
+            <div id="blogs-container" style={blogsContainerStyle}>
             <h1 id="blogs-heading" style={blogsContainerTitleStyle}>Blogs</h1>
             {
-                Object.keys(FeaturedBlogs).map((key) => {
-                    return (
-                        <BlogsRow
-                            key={FeaturedBlogs[key].time_stamp}
-                            link={BaseUrl+'blogs/'+FeaturedBlogs[key].blog_id}
-                            title={FeaturedBlogs[key].blog_title}
-                            description={FeaturedBlogs[key].blog_description}
-                        />
-                    )
-                })
-            }
+            Object.keys(FeaturedBlogs).map((key) => {
+            return (
+                <BlogsRow
+                    key={FeaturedBlogs[key].time_stamp}
+                    link={BaseUrl+'blogs/'+FeaturedBlogs[key].blog_id}
+                    title={FeaturedBlogs[key].blog_title}
+                    description={FeaturedBlogs[key].blog_description}
+                />
+            )})}
             <div id='view-all-container' style={viewAllContainerStyle}>
                 <p style={viewAllStyle} onClick={() => window.location.href=(BaseUrl+'blogs')}>View all</p>
             </div>
-        </div>
+            </div>
+            }
+        </>
     )
 }
 

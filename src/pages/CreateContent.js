@@ -3,7 +3,6 @@ import { BaseUrl, ApiBaseUrl } from '../config.js';
 import { useNavigate } from 'react-router-dom';
 import '../css/CreateBlog.css'
 
-function redirectTo(link){window.location.href = link;}
 
 function CreateBlog() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-
-import TopBar from '../components/HomePage/TopBar';
-import Footer from '../components/HomePage/Footer';
-import '../css/DisplayBlog.css';
-
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import { BaseUrl, ApiBaseUrl } from '../config.js';
+
+import TopBar from '../components/TopBar.js';
+import Footer from '../components/Footer';
+import LoadingAnimation from '../components/LoadingAnimation.js';
+import '../css/DisplayBlog.css';
+
+import {ApiBaseUrl } from '../config.js';
 
 
 function DisplayBlog(){
@@ -46,15 +47,25 @@ function DisplayBlog(){
         
     }, []);
 
+    const loadingAnimationContainerStyle ={
+        width: "100vw",
+        height: "calc(100vh - 65px",
+    }
+
     return(
         <div id='blogs-page' >
             <TopBar />
+            {
+            markdown === '' ? <div style={loadingAnimationContainerStyle} > <LoadingAnimation/> </div> : 
+            <>
             <div id='blog-title-container'>
                 <h1 id='blog-title'>{blogTitle}</h1>
             </div>
             <div id='blogs-container'>
                 <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdown}</ReactMarkdown>
             </div>
+            </>
+            }
             <Footer />
         </div>
     )

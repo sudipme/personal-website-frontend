@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BaseUrl, ApiBaseUrl } from '../config.js';
-import TopBar from '../components/HomePage/TopBar';
-import '../css/BlogsPage.css'
+import TopBar from '../components/TopBar.js';
+import LoadingAnimation from '../components/LoadingAnimation.js';
+import '../css/BlogsPage.css';
 
 function BlogsRow(props){
     const blogRowContainerStyle = {
         margin: "10px 0px",
-        overflow: "scroll",
+        overflow: "hidden",
         cursor: "pointer",
     }
     const blogTitleStyle = {
@@ -54,27 +55,24 @@ function BlogsPage(){
 
     }, [pageNumber]);
 
-    if (blogs == null){
-        return (<div> Loading . . .</div>)
-    } 
-
-    const topBarStyle = {
-        backgroundColor: "#fff",
-    }
-
     const blogsContainerStyle = {
         width: "100vw",
         marginBottom: "100px",
         display: "flex",
         flexDirection: "column",
-        judtifyContent: "center",
         alignItems: "center",
+        overflow: "hidden",
     }
+    const loadingAnimationContainerStyle ={
+        width: "100vw",
+        height: "calc(100vh - 165px",
+    }
+    
     return(
-        <div>  
-            <div style={topBarStyle}>
+        <div style={{overflow:"hidden"}}>  
             <TopBar  />
-            </div>
+            {
+            blogs === null ? <div style={loadingAnimationContainerStyle} > <LoadingAnimation/> </div> :
             <div id="blogs-container" style={blogsContainerStyle}>
                 {
                     Object.keys(blogs).map((key) => {
@@ -88,8 +86,8 @@ function BlogsPage(){
                         )
                     })
                 }
-
             </div>
+            }
             <div id="pagination-container">
                 <button className='pagination-button' onClick={() => setPageNumber(pageNumber-1)} disabled={pageNumber === 0}>Previous</button>
                 <h3 id='page-counter' >({pageNumber+1} / {totalPages} )</h3>

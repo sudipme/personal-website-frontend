@@ -4,30 +4,60 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 #blog-title-container{
-    width: 80%;
+    width: 60%;
 }
 #blog-title{
     color: #000;
     font-style: Raleway;
-    font-size: 36px;
+    font-size: 32px;
+    font-weight: 600;
     font-style: normal;
-    font-weight: normal;
-    line-height: normal;
+    line-height: 38px;
 }
 #blogs-container{
-    width: 80%;
-    line-height: 150%;
+    width: 60%;
+    line-height: 28px;
+    margin-bottom: 100px;
 }
-#blogs-container:hover{
-    cursor: pointer;
+#blogs-container h1{
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 30px;
+    padding: 0;
+    margin-top: 45px;
 }
+#blogs-container h2{
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 24px;
+    padding: 0;
+    margin-top: 40px;
+}
+#blogs-container p{
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+}
+#blogs-container strong{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0;
+    margin-top: 40px;
+
+}
+
 pre {
     overflow-x: auto;
     white-space: nowrap;
-    background-color: #ddd;
+    background-color: #eee;
     padding: 10px;
+    margin: 20px 0;
     border-radius: 5px;
 }
 @media screen and (max-width: 768px){
@@ -35,10 +65,40 @@ pre {
         width: 90%;
     }
     #blog-title{
-        font-size: 24px;
+        font-size: 32px;
+        font-weight: 400;
     }
     #blogs-container{
         width: 90%;
-        font-size: 14px;
+    }
+    #blogs-container h1{
+        font-size: 20px;
+        font-weight: 600;
+        font-style: normal;
+        line-height: 24px;
+        padding: 0;
+        margin-top: 24px;
+    }
+    #blogs-container h2{
+        font-size: 20px;
+        font-weight: 600;
+        font-style: normal;
+        line-height: 20px;
+        padding: 0;
+        margin-top: 20px;
+    }
+    #blogs-container p{
+        font-size: 18px;
+        line-height: 28px;
+        margin: 0;
+        padding: 0;
+        margin-top: 30px;
+    }
+    #blogs-container strong{
+        font-size: 18px;
+        font-weight: 600;
+        padding: 0;
+        margin-top: 20px;
+    
     }
 }
