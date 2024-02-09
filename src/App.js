@@ -9,7 +9,6 @@ const DisplayBlog = React.lazy(() => import('./pages/DisplayBlog'));
 const CreateContent = React.lazy(() => import('./pages/CreateContent'));
 const BlogsPage = React.lazy(() => import('./pages/BlogsPage'));
 const ProjectsPage = React.lazy(() => import('./pages/ProjectsPage'));
-const MyPage = React.lazy(() => import('./pages/MyPage'));
 const LoginPage = React.lazy(() => import('./pages/LoginPage'));
 
 function App() {
