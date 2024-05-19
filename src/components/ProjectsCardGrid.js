@@ -15,6 +15,7 @@ function ProjectCard(props) {
   const titleStyle = {
     textAlign: "left",
     marginLeft: "30px",
+    marginBottom: "10px",
     color: "#FFF",
     fontFamily: "Exo, sans-serif",
     fontSize: "20px",
@@ -27,7 +28,7 @@ function ProjectCard(props) {
     textAlign: "left",
     color: "#ccc",
     fontFamily: "Exo, sans-serif",
-    fontSize: "16px",
+    fontSize: "14px",
     fontStyle: "normal",
     fontWeight: 400,
     lineHeight: "normal",
