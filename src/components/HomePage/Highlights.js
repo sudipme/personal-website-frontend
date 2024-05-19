@@ -1,74 +1,99 @@
-import { useEffect, useState } from 'react';
-import '../../css/HighlightsRow.css';
-import { ApiBaseUrl } from '../../config';
-import LoadingAnimation from '../LoadingAnimation';
+import { useEffect, useState } from "react";
+import "../../css/HighlightsRow.css";
+import { ApiBaseUrl } from "../../config";
+import LoadingAnimation from "../LoadingAnimation";
+import RightArrowIcon from "../../assets/icons/right-arrow-icon.svg";
 
-function HighlightsRow(props){
-    const rowContainerStyle = {
-        margin: "8px 0",
-        display: "flex",
-        borderRadius: "10px",
-        border: "0.5px solid rgba(0, 0, 0, 0.1)",
-        background: "#FFFFFF",
-        filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.20))",
-        cursor: "pointer",
-    }
-    const frontDesignStyle = {
-        width: "10px",
-        borderRadius: "10px 0px 0px 10px",
-        border: "1px solid rgba(0, 0, 0, 0.10)",
-        background: "#767676",
-        boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.20)",
-    }
-    const contentContainerStyle = {
-        minHeight: "40px",
-        display: "flex",
-        alignItems: "center",
-        paddingLeft: "20px",
-    }
-    const contentStyle = {
-        margin: "5px 0",
-        color: "#000",
-        fontFamily: "Open Sans",
-        fontStyle: "normal",
-        fontWeight: 400,
-        lineHeight: "normal",
-    }
-    return(
-        <div id="row-container" style={rowContainerStyle} onClick={() => window.open(props.link, '_blank')}>
-            <div id="front-design" style={frontDesignStyle}></div>
-            <div id="content-container" style={contentContainerStyle}>
-                <p id="content" style={contentStyle}>{props.content}</p>
-            </div>
-        </div>
-    )
+function UpdatesRow(props) {
+  const listItemStyle = {
+    margin: "5px 0 5px 50px",
+    padding: "5px 0",
+    cursor: "pointer",
+    boxSize: "border-box",
+  };
+
+  return (
+    <li
+      id="list-item"
+      style={listItemStyle}
+      onClick={() => window.open(props.link, "_blank")}
+    >
+      {props.content}
+    </li>
+  );
 }
 
-function Highlights(props){
-    const [highlights, setHighlights] =useState(null);
-    useEffect(()=>{
-        fetch(ApiBaseUrl + "highlights")
-        .then(response => response.json())
-        .then(data => setHighlights(data.highlights))
-        .catch(error => console.error('Error fetching data:', error))
-    },[]);
-    
-    useEffect(()=>{
-        if(highlights!==null){props.componentLoaded();}
-    },[highlights])
+function Highlights(props) {
+  const [highlights, setHighlights] = useState(null);
+  useEffect(() => {
+    fetch(ApiBaseUrl + "highlights")
+      .then((response) => response.json())
+      .then((data) => setHighlights(data.highlights))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
-    return(
-        <>
-            { 
-            highlights === null ? <LoadingAnimation/> :
-            Object.keys(highlights).map((key) => {
-                return(
-                    <HighlightsRow key={highlights[key].time_stamp} content={highlights[key].content} link={highlights[key].link}/>
-                )
-            })
-            }
-        </>
-    )
+  useEffect(() => {
+    if (highlights !== null) {
+      props.componentLoaded();
+    }
+  }, [highlights]);
+
+  const updatesContainerStyle = {
+    padding: "0 0 10px 0",
+  };
+  const headingContainerStyle = {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    cursor: "pointer",
+  };
+  const headingStyle = {
+    fontSize: "24px",
+    color: "#888",
+    fontFamily: "Raleway",
+    fontStyle: "normal",
+    fontWeight: "600",
+    lineHeight: "normal",
+  };
+  const rightArrowIconStyle = {
+    fontSize: "28px",
+    fontWeight: "400",
+    width: "20px",
+  };
+
+  return (
+    <>
+      <ul id="updates-container" style={updatesContainerStyle}>
+        <div
+          style={headingContainerStyle}
+          onClick={() => window.open("/updates", "_blank")}
+        >
+          <h1 style={headingStyle}>Updates &nbsp;</h1>
+          <img
+            src={RightArrowIcon}
+            style={rightArrowIconStyle}
+            alt="expand button"
+          ></img>
+        </div>
+
+        {highlights === null ? (
+          <LoadingAnimation />
+        ) : (
+          Object.keys(highlights).map((key) => {
+            return (
+              <UpdatesRow
+                key={highlights[key].time_stamp}
+                content={highlights[key].content}
+                link={highlights[key].link}
+              />
+            );
+          })
+        )}
+        <div id="expand-button-container"></div>
+      </ul>
+    </>
+  );
 }
 
 export default Highlights;
