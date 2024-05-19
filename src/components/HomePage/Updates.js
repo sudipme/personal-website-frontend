@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../../css/HighlightsRow.css";
+import "../../css/Updates.css";
 import { ApiBaseUrl } from "../../config";
 import LoadingAnimation from "../LoadingAnimation";
 import RightArrowIcon from "../../assets/icons/right-arrow-icon.svg";
@@ -10,6 +10,7 @@ function UpdatesRow(props) {
     padding: "5px 0",
     cursor: "pointer",
     boxSize: "border-box",
+    fontSize: "18px",
   };
 
   return (
@@ -23,20 +24,20 @@ function UpdatesRow(props) {
   );
 }
 
-function Highlights(props) {
-  const [highlights, setHighlights] = useState(null);
+function Updates(props) {
+  const [updates, setUpdates] = useState(null);
   useEffect(() => {
     fetch(ApiBaseUrl + "highlights")
       .then((response) => response.json())
-      .then((data) => setHighlights(data.highlights))
+      .then((data) => setUpdates(data.highlights))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   useEffect(() => {
-    if (highlights !== null) {
+    if (updates !== null) {
       props.componentLoaded();
     }
-  }, [highlights]);
+  }, [updates]);
 
   const updatesContainerStyle = {
     padding: "0 0 10px 0",
@@ -77,15 +78,15 @@ function Highlights(props) {
           ></img>
         </div>
 
-        {highlights === null ? (
+        {updates === null ? (
           <LoadingAnimation />
         ) : (
-          Object.keys(highlights).map((key) => {
+          Object.keys(updates).map((key) => {
             return (
               <UpdatesRow
-                key={highlights[key].time_stamp}
-                content={highlights[key].content}
-                link={highlights[key].link}
+                key={updates[key].time_stamp}
+                content={updates[key].content}
+                link={updates[key].link}
               />
             );
           })
@@ -96,4 +97,4 @@ function Highlights(props) {
   );
 }
 
-export default Highlights;
+export default Updates;

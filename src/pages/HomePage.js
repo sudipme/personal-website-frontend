@@ -3,7 +3,7 @@ import { ApiBaseUrl } from "../config.js";
 
 import LoadingAnimation from "../components/LoadingAnimation.js";
 import TopBar from "../components/TopBar.js";
-import HighlightsRow from "../components/HomePage/Highlights";
+import Updates from "../components/HomePage/Updates";
 import { FeaturedProjects } from "../components/HomePage/FeaturedProjects";
 import FeaturedBlogs from "../components/HomePage/FeaturedBlogs";
 import Footer from "../components/Footer.js";
@@ -69,7 +69,7 @@ function HomePage() {
         <AboutMe />
         <Spacer height="20px" />
 
-        <HighlightsRow componentLoaded={highlightsLoaded} />
+        <Updates componentLoaded={highlightsLoaded} />
 
         <Spacer height="20px" />
 
@@ -87,9 +87,9 @@ function AboutMe() {
   const [aboutMeText, setAboutMeText] = useState("");
   const paragraphStyle = {
     color: "#000",
-    fontFamily: "Raleway",
+    fontFamily: "Montserrat",
     fontStyle: "normal",
-    fontWeight: "500",
+    // fontWeight: "500",
     lineHeight: "normal",
   };
   const firstLineStyle = {
