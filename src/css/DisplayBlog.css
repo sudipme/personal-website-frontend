@@ -67,7 +67,7 @@ code {
     padding: 2px 4px;
     border-radius: 3px;
     font-family: monospace;
-    font-size: 85%;
+    font-size: 100%;
 }
 @media screen and (max-width: 768px) {
     #blog-title-container {
