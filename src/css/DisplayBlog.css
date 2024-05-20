@@ -1,4 +1,4 @@
-#blogs-page{
+#blogs-page {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -6,10 +6,10 @@
     justify-content: center;
     overflow: hidden;
 }
-#blog-title-container{
+#blog-title-container {
     width: 60%;
 }
-#blog-title{
+#blog-title {
     color: #000;
     font-style: Raleway;
     font-size: 32px;
@@ -17,12 +17,13 @@
     font-style: normal;
     line-height: 38px;
 }
-#blogs-container{
+#blogs-container {
     width: 60%;
+    min-height: 100vh;
     line-height: 28px;
     margin-bottom: 100px;
 }
-#blogs-container h1{
+#blogs-container h1 {
     font-size: 24px;
     font-weight: 600;
     font-style: normal;
@@ -30,7 +31,7 @@
     padding: 0;
     margin-top: 45px;
 }
-#blogs-container h2{
+#blogs-container h2 {
     font-size: 20px;
     font-weight: 600;
     font-style: normal;
@@ -38,18 +39,17 @@
     padding: 0;
     margin-top: 40px;
 }
-#blogs-container p{
+#blogs-container p {
     font-size: 20px;
     margin: 0;
     padding: 0;
     margin-top: 30px;
 }
-#blogs-container strong{
+#blogs-container strong {
     font-size: 20px;
     font-weight: 600;
     padding: 0;
     margin-top: 40px;
-
 }
 
 pre {
@@ -60,18 +60,18 @@ pre {
     margin: 20px 0;
     border-radius: 5px;
 }
-@media screen and (max-width: 768px){
-    #blog-title-container{
+@media screen and (max-width: 768px) {
+    #blog-title-container {
         width: 90%;
     }
-    #blog-title{
+    #blog-title {
         font-size: 32px;
         font-weight: 400;
     }
-    #blogs-container{
+    #blogs-container {
         width: 90%;
     }
-    #blogs-container h1{
+    #blogs-container h1 {
         font-size: 20px;
         font-weight: 600;
         font-style: normal;
@@ -79,7 +79,7 @@ pre {
         padding: 0;
         margin-top: 24px;
     }
-    #blogs-container h2{
+    #blogs-container h2 {
         font-size: 20px;
         font-weight: 600;
         font-style: normal;
@@ -87,18 +87,17 @@ pre {
         padding: 0;
         margin-top: 20px;
     }
-    #blogs-container p{
+    #blogs-container p {
         font-size: 18px;
         line-height: 28px;
         margin: 0;
         padding: 0;
         margin-top: 30px;
     }
-    #blogs-container strong{
+    #blogs-container strong {
         font-size: 18px;
         font-weight: 600;
         padding: 0;
         margin-top: 20px;
-    
     }
 }
