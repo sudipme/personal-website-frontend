@@ -75,7 +75,7 @@ function ProjectsCardGrid(props) {
         return (
           <ProjectCard
             key={widget.time_stamp}
-            link={BaseUrl + "blogs/" + widget.project_id}
+            link={BaseUrl + "projects/" + widget.project_id}
             title={widget.project_title}
             description={widget.project_description}
           />

@@ -20,8 +20,9 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/projects" element={<ProjectsPage />} />
         <Route exact path="/mail" element={<SendMail />} />
-        <Route exact path="/blogs/:blogId" element={<DisplayBlog />} />
         <Route exact path="/blogs" element={<BlogsPage />} />
+        <Route exact path="/blogs/:blogId" element={<DisplayBlog />} />
+        <Route exact path="/projects/:blogId" element={<DisplayBlog />} />
         <Route exact path="/create-content" element={<CreateContent />} />
         <Route exact path="/upload-file" element={<UploadFile />} />
         <Route exact path="/mypage" element={<MyPage />} />
