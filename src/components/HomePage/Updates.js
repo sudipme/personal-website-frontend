@@ -42,7 +42,7 @@ function Updates(props) {
     padding: "0px",
     backgroundColor: "#000",
     listStyleType: "none",
-    textAlign: "left",
+    textAlign: "center",
   };
   const listTitleWrapperStyle = {
     width: "100%",
