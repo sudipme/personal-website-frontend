@@ -68,7 +68,7 @@ function Updates(props) {
       <ul id="updates-container" style={updatesContainerStyle}>
         <div
           style={headingContainerStyle}
-          onClick={() => window.open("/updates", "_blank")}
+          onClick={() => (window.location.href = "/updates")}
         >
           <h1 style={headingStyle}>Updates &nbsp;</h1>
           <img

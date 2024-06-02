@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./css/App.css";
 
@@ -14,9 +14,22 @@ const MyPage = React.lazy(() => import("./pages/MyPage"));
 const LoginPage = React.lazy(() => import("./pages/LoginPage"));
 
 function App() {
+  // const [isLoaded, setIsLoaded] = useState(false);
+  // const loaded = () => {
+  //   setIsLoaded(true);
+  // };
+  // useEffect(() => {
+  //   if (isLoaded) {
+  //     console.log("loaded");
+  //   } else {
+  //     console.log("not loaded");
+  //   }
+  // }, [isLoaded]);
+
   return (
     <BrowserRouter>
       <Routes>
+        {/* <Route exact path="/" element={<HomePage callback={loaded} />} /> */}
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/projects" element={<ProjectsPage />} />
         <Route exact path="/mail" element={<SendMail />} />

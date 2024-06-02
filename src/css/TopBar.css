@@ -1,30 +1,31 @@
-#top-bar-elements-container{
+#top-bar-elements-container {
     width: 70vw;
+    height: 60px;
     max-width: 1300px;
 }
-#top-bar-title{
+#top-bar-title {
     font-size: 28px;
 }
-#top-line{
+#top-line {
     width: 90vw;
     max-width: 1500px;
 }
-#links-container{
+#links-container {
     width: 200px;
 }
 
-
-@media screen and (max-width: 768px){
-    #top-bar-elements-container{
+@media screen and (max-width: 768px) {
+    #top-bar-elements-container {
         width: 85vw;
+        height: 60px;
     }
-    #top-bar-title{
+    #top-bar-title {
         font-size: 24px;
     }
-    #top-line{
+    #top-line {
         width: 90vw;
     }
-    #links-container{
+    #links-container {
         width: 150px;
     }
 }

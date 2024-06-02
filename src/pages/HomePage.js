@@ -10,6 +10,7 @@ import Footer from "../components/Footer.js";
 import "../css/HomePage.css";
 import RightArrowIcon from "../assets/icons/right-arrow-icon.svg";
 
+// function HomePage({ callback }) {
 function HomePage() {
   const [isHighlightsLoaded, setIsHighlightsLoaded] = useState(false);
   const [isFeaturedProjectsLoaded, setIsFeaturedProjectsLoaded] =
@@ -27,6 +28,10 @@ function HomePage() {
 
   let everythingLoaded =
     isHighlightsLoaded && isFeaturedProjectsLoaded && isFeaturedBlogsLoaded;
+
+  // useEffect(() => {
+  //   everythingLoaded && callback();
+  // }, [everythingLoaded]);
 
   const homePageStyle = {
     width: "100vw",
@@ -147,7 +152,7 @@ function Heading(props) {
   return (
     <div
       style={headingContainerStyle}
-      onClick={() => window.open(props.link, "_blank")}
+      onClick={() => (window.location.href = props.link)}
     >
       <h1 style={headingStyle}>{props.title} &nbsp;</h1>
       <img
