@@ -78,9 +78,7 @@ function Updates(props) {
           ></img>
         </div>
 
-        {updates === null ? (
-          <LoadingAnimation />
-        ) : (
+        {updates != null &&
           Object.keys(updates).map((key) => {
             return (
               <UpdatesRow
@@ -89,8 +87,7 @@ function Updates(props) {
                 link={updates[key].link}
               />
             );
-          })
-        )}
+          })}
         <div id="expand-button-container"></div>
       </ul>
     </>

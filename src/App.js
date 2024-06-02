@@ -1,50 +1,45 @@
 import React, { useState, useEffect } from "react";
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./css/App.css";
 
-const HomePage = React.lazy(() => import("./pages/HomePage"));
-const NotFound = React.lazy(() => import("./pages/NotFound"));
-const SendMail = React.lazy(() => import("./pages/SendMail"));
-const DisplayBlog = React.lazy(() => import("./pages/DisplayBlog"));
-const CreateContent = React.lazy(() => import("./pages/CreateContent"));
-const UploadFile = React.lazy(() => import("./pages/UploadFile"));
-const BlogsPage = React.lazy(() => import("./pages/BlogsPage"));
-const ProjectsPage = React.lazy(() => import("./pages/ProjectsPage"));
-const MyPage = React.lazy(() => import("./pages/MyPage"));
-const LoginPage = React.lazy(() => import("./pages/LoginPage"));
+const HomePage = lazy(() => import("./pages/HomePage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const SendMail = lazy(() => import("./pages/SendMail"));
+const DisplayBlog = lazy(() => import("./pages/DisplayBlog"));
+const CreateContent = lazy(() => import("./pages/CreateContent"));
+const UploadFile = lazy(() => import("./pages/UploadFile"));
+const BlogsPage = lazy(() => import("./pages/BlogsPage"));
+const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
+const MyPage = lazy(() => import("./pages/MyPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
 
 function App() {
-  // const [isLoaded, setIsLoaded] = useState(false);
-  // const loaded = () => {
-  //   setIsLoaded(true);
-  // };
-  // useEffect(() => {
-  //   if (isLoaded) {
-  //     console.log("loaded");
-  //   } else {
-  //     console.log("not loaded");
-  //   }
-  // }, [isLoaded]);
-
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* <Route exact path="/" element={<HomePage callback={loaded} />} /> */}
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/projects" element={<ProjectsPage />} />
-        <Route exact path="/mail" element={<SendMail />} />
-        <Route exact path="/blogs" element={<BlogsPage />} />
-        <Route exact path="/blogs/:blogId" element={<DisplayBlog />} />
-        <Route exact path="/projects/:blogId" element={<DisplayBlog />} />
-        <Route exact path="/create-content" element={<CreateContent />} />
-        <Route exact path="/upload-file" element={<UploadFile />} />
-        <Route exact path="/mypage" element={<MyPage />} />
-        <Route exact path="/login" element={<LoginPage />} />
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/projects" element={<ProjectsPage />} />
+          <Route exact path="/mail" element={<SendMail />} />
+          <Route exact path="/blogs" element={<BlogsPage />} />
+          <Route exact path="/blogs/:blogId" element={<DisplayBlog />} />
+          <Route exact path="/projects/:blogId" element={<DisplayBlog />} />
+          <Route exact path="/create-content" element={<CreateContent />} />
+          <Route exact path="/upload-file" element={<UploadFile />} />
+          <Route exact path="/mypage" element={<MyPage />} />
+          <Route exact path="/login" element={<LoginPage />} />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        {/* </Suspense> */}
+      </BrowserRouter>
+    </>
   );
+}
+
+function Loading() {
+  return <div>Loading...</div>;
 }
 
 export default App;

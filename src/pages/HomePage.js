@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ApiBaseUrl } from "../config.js";
 
+import HelloAnimation from "../components/HelloAnimation.js";
 import LoadingAnimation from "../components/LoadingAnimation.js";
 import TopBar from "../components/TopBar.js";
 import Updates from "../components/HomePage/Updates";
@@ -10,12 +11,48 @@ import Footer from "../components/Footer.js";
 import "../css/HomePage.css";
 import RightArrowIcon from "../assets/icons/right-arrow-icon.svg";
 
-// function HomePage({ callback }) {
 function HomePage() {
+  const [displayPage, setDisplayPage] = useState(false);
+  const [animationTimeout, setAnimationTimeout] = useState(false);
   const [isHighlightsLoaded, setIsHighlightsLoaded] = useState(false);
   const [isFeaturedProjectsLoaded, setIsFeaturedProjectsLoaded] =
     useState(false);
   const [isFeaturedBlogsLoaded, setIsFeaturedBlogsLoaded] = useState(false);
+  const [timeDifference, setTimeDifference] = useState(null);
+
+  const savedDateTime = localStorage.getItem("savedDateTime");
+  const pageVisited = localStorage.getItem("pageVisited");
+
+  const maxTimeDifference = 10;
+
+  // set new date time in local storage
+  if (
+    savedDateTime == null ||
+    (timeDifference != null && timeDifference > maxTimeDifference)
+  ) {
+    const currentDateTime = new Date().toISOString();
+    localStorage.setItem("savedDateTime", currentDateTime);
+  }
+
+  const calculateTimeDifference = () => {
+    if (savedDateTime) {
+      const savedDate = new Date(savedDateTime);
+      const currentDate = new Date();
+      const differenceInMilliseconds = currentDate - savedDate;
+      const differenceInMinutes = Math.floor(differenceInMilliseconds / 1000);
+      setTimeDifference(differenceInMinutes);
+    }
+  };
+
+  useEffect(() => {
+    console.log("saved", savedDateTime);
+    if (savedDateTime) {
+      calculateTimeDifference();
+    }
+  }, []);
+
+  console.log(timeDifference);
+
   const highlightsLoaded = () => {
     setIsHighlightsLoaded(true);
   };
@@ -26,12 +63,25 @@ function HomePage() {
     setIsFeaturedBlogsLoaded(true);
   };
 
-  let everythingLoaded =
+  let allComponentsLoaded =
     isHighlightsLoaded && isFeaturedProjectsLoaded && isFeaturedBlogsLoaded;
 
-  // useEffect(() => {
-  //   everythingLoaded && callback();
-  // }, [everythingLoaded]);
+  setTimeout(() => {
+    setAnimationTimeout(true);
+  }, 3000);
+
+  console.log("page visited", pageVisited);
+  useEffect(() => {
+    if (pageVisited == null) {
+      setDisplayPage(animationTimeout && allComponentsLoaded);
+      animationTimeout && localStorage.setItem("pageVisited", true);
+    } else {
+      setDisplayPage(
+        (animationTimeout || timeDifference < maxTimeDifference) &&
+          allComponentsLoaded,
+      );
+    }
+  }, [allComponentsLoaded, animationTimeout, timeDifference]);
 
   const homePageStyle = {
     width: "100vw",
@@ -55,17 +105,21 @@ function HomePage() {
     <>
       <div
         style={
-          everythingLoaded
-            ? { display: "none" }
-            : loadingAnimationContainerStyle
+          !displayPage ? loadingAnimationContainerStyle : { display: "none" }
         }
       >
-        <LoadingAnimation />
+        {pageVisited == null ? (
+          <HelloAnimation />
+        ) : timeDifference < maxTimeDifference ? (
+          <LoadingAnimation />
+        ) : (
+          <HelloAnimation />
+        )}
       </div>
 
       <div
         id="home-page"
-        style={everythingLoaded ? homePageStyle : { display: "none" }}
+        style={displayPage ? homePageStyle : { display: "none" }}
       >
         <TopBar />
         <Spacer height="20px" />

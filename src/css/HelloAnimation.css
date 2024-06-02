@@ -1,0 +1,26 @@
+#hello-wrapper {
+    width: 25vw;
+}
+
+.hello {
+    fill: none;
+    stroke: #444;
+    stroke-miterlimit: 10;
+    stroke-linecap: round;
+    stroke-width: 3;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: write 3s ease-in forwards;
+}
+
+@keyframes write {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #hello-wrapper {
+        width: 40vw;
+    }
+}
