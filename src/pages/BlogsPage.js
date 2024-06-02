@@ -13,6 +13,8 @@ function BlogsRow(props) {
   const blogTitleStyle = {
     margin: "5px 0px",
     textAlign: "left",
+    color: "#fff",
+    fontSize: "1.5em",
     fontFamily: "Exo",
     fontStyle: "normal",
     fontWeight: "400",
@@ -21,7 +23,7 @@ function BlogsRow(props) {
   const blogDescriptionStyle = {
     margin: "5px 0px",
     textAlign: "left",
-    color: "#bbb",
+    color: "#aaa",
     fontFamily: "Exo 2",
     fontStyle: "normal",
     fontWeight: "400",
@@ -71,8 +73,8 @@ function BlogsPage() {
     flexDirection: "column",
     alignItems: "center",
     overflow: "hidden",
-    backgroundColor: "#222",
-    marginTop: "-1px",
+    backgroundColor: "#111",
+    // marginTop: "-1px",
   };
   const loadingAnimationContainerStyle = {
     width: "100vw",

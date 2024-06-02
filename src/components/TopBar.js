@@ -14,6 +14,7 @@ function TopBar() {
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
+    background: "#222",
   };
 
   const elementsContainerStyle = {
@@ -23,10 +24,10 @@ function TopBar() {
   };
 
   const titleStyle = {
-    color: "#000",
+    color: "#fff",
     fontFamily: "Montserrat",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "400",
     lineHeight: "normal",
     cursor: "pointer",
   };
@@ -46,7 +47,7 @@ function TopBar() {
         </h1>
         <SocialLinks />
       </div>
-      <div id="top-line" style={topLineStyle}></div>
+      {/* <div id="top-line" style={topLineStyle}></div> */}
     </div>
   );
 }

@@ -1,13 +1,6 @@
 #blogs-row-container {
     width: 80vw;
 }
-#blog-row-title {
-    font-size: 24px;
-    color: #fff;
-}
-#blogs-row-container:hover #blog-row-title {
-    color: #aaa;
-}
 #blog-row-description {
     width: 80vw;
     font-size: 18px;
@@ -20,9 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #181818;
-    border-top: 2px solid #fff;
-    border-radius: 20px 20px 0px 0px;
+    background-color: #222;
     z-index: 10;
 }
 .pagination-button {
