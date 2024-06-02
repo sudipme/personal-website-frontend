@@ -7,7 +7,7 @@ function ProjectCard(props) {
     height: "175px",
     borderRadius: "20px",
     border: "0.5px solid rgba(0, 0, 0, 0.1)",
-    background: "#222",
+    background: "#323232",
     filter: "drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.20))",
     cursor: "pointer",
     overflow: "hidden",

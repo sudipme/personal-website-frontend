@@ -61,13 +61,13 @@ function FeaturedBlogs(props) {
     flexDirection: "column",
     judtifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#555",
+    backgroundColor: "#323232",
     overflow: "hidden",
     borderRadius: "50px 50px 0 0",
   };
   const blogsContainerTitleStyle = {
     textAlign: "center",
-    color: "#ddd",
+    color: "#f5f5f7",
     fontFamily: "Raleway",
     margin: "10px",
     fontStyle: "normal",

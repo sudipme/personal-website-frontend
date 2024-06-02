@@ -6,10 +6,6 @@
 #top-bar-title {
     font-size: 28px;
 }
-#top-line {
-    width: 90vw;
-    max-width: 1500px;
-}
 #links-container {
     width: 200px;
 }
@@ -21,9 +17,6 @@
     }
     #top-bar-title {
         font-size: 24px;
-    }
-    #top-line {
-        width: 90vw;
     }
     #links-container {
         width: 150px;

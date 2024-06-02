@@ -14,7 +14,7 @@ import RightArrowIcon from "../assets/icons/right-arrow-icon.svg";
 function HomePage() {
   const [displayPage, setDisplayPage] = useState(false);
   const [animationTimeout, setAnimationTimeout] = useState(false);
-  const [isHighlightsLoaded, setIsHighlightsLoaded] = useState(false);
+  const [isUpdatesLoaded, setIsUpdatesLoaded] = useState(false);
   const [isFeaturedProjectsLoaded, setIsFeaturedProjectsLoaded] =
     useState(false);
   const [isFeaturedBlogsLoaded, setIsFeaturedBlogsLoaded] = useState(false);
@@ -23,7 +23,7 @@ function HomePage() {
   const savedDateTime = localStorage.getItem("savedDateTime");
   const pageVisited = localStorage.getItem("pageVisited");
 
-  const maxTimeDifference = 5;
+  const maxTimeDifference = 10;
 
   // set new date time in local storage
   if (
@@ -52,8 +52,8 @@ function HomePage() {
     }
   }, []);
 
-  const highlightsLoaded = () => {
-    setIsHighlightsLoaded(true);
+  const updatesLoaded = () => {
+    setIsUpdatesLoaded(true);
   };
   const featuredProjectsLoaded = () => {
     setIsFeaturedProjectsLoaded(true);
@@ -63,7 +63,7 @@ function HomePage() {
   };
 
   let allComponentsLoaded =
-    isHighlightsLoaded && isFeaturedProjectsLoaded && isFeaturedBlogsLoaded;
+    isUpdatesLoaded && isFeaturedProjectsLoaded && isFeaturedBlogsLoaded;
 
   setTimeout(() => {
     setAnimationTimeout(true);
@@ -89,6 +89,7 @@ function HomePage() {
     justifyContent: "flex-around",
     alignItems: "center",
     overflow: "hidden",
+    backgroundColor: "#000",
   };
 
   const loadingAnimationContainerStyle = {
@@ -97,8 +98,12 @@ function HomePage() {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#000",
   };
-
+  const infoContainerStyle = {
+    display: "flex",
+    alignItems: "flex-start",
+  };
   return (
     <>
       <div
@@ -121,18 +126,17 @@ function HomePage() {
       >
         <TopBar />
         <Spacer height="20px" />
-
         <div></div>
         <AboutMe />
         <Spacer height="20px" />
 
-        <Updates componentLoaded={highlightsLoaded} />
-
-        <Spacer height="20px" />
-
+        <div id="info-container" style={infoContainerStyle}>
+          <Links />
+          <Updates componentLoaded={updatesLoaded} />
+        </div>
         <Heading title="Projects" link="/projects" />
         <FeaturedProjects componentLoaded={featuredProjectsLoaded} />
-        <Spacer height="20px" />
+        <Spacer height="40px" />
         <FeaturedBlogs conponentLoaded={featuredBlogsLoaded} />
         <Footer />
       </div>
@@ -143,10 +147,9 @@ function HomePage() {
 function AboutMe() {
   const [aboutMeText, setAboutMeText] = useState("");
   const paragraphStyle = {
-    color: "#000",
+    color: "#f5f5f7",
     fontFamily: "Montserrat",
     fontStyle: "normal",
-    // fontWeight: "500",
     lineHeight: "normal",
   };
   const firstLineStyle = {
@@ -190,7 +193,7 @@ function Heading(props) {
   };
   const headingStyle = {
     fontSize: "24px",
-    color: "#888",
+    color: "#f5f5f7",
     fontFamily: "Raleway",
     fontStyle: "normal",
     fontWeight: "600",
@@ -223,17 +226,54 @@ function Spacer(props) {
   return <div id="spacer" style={spacerStyle}></div>;
 }
 
-// function BackgroundBlock() {
-//   const blockStyle = {
-//     width: "100vw",
-//     height: "100vh",
-//     backgroundColor: "#222",
-//     position: "absolute",
-//     top: "50%",
-//     left: "0",
-//     zIndex: "-10",
-//   };
-//   return <div id="background-block" style={blockStyle}></div>;
-// }
+function Links() {
+  const listStyle = {
+    minWidth: "300px",
+    padding: "0",
+    listStyleType: "none",
+    textAlign: "left",
+  };
+  const listTitleWrapperStyle = {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    cursor: "pointer",
+  };
+  const listTitleStyle = {
+    fontSize: "24px",
+    color: "#f5f5f7",
+    fontFamily: "Raleway",
+    fontStyle: "normal",
+    fontWeight: "600",
+    lineHeight: "normal",
+  };
+  const listItemStyle = {
+    width: "100%",
+    color: "rgb(41, 151, 255)",
+    cursor: "pointer",
+    boxSize: "border-box",
+    fontSize: "18px",
+    textDecoration: "underline",
+  };
+
+  return (
+    <ul id="links-list" style={listStyle}>
+      <div
+        style={listTitleWrapperStyle}
+        onClick={() => (window.location.href = "/links")}
+      >
+        <h1 style={listTitleStyle}>Links</h1>
+      </div>
+
+      <li
+        style={listItemStyle}
+        onClick={() => window.open("https://resume.sudip.me", "_blank")}
+      >
+        Resume
+      </li>
+    </ul>
+  );
+}
 
 export default HomePage;

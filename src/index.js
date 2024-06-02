@@ -21,6 +21,7 @@ function Loading() {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#000",
   };
   return (
     <div style={loadingAnimationContainerStyle}>

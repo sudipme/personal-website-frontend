@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import "../../css/Updates.css";
 import { ApiBaseUrl } from "../../config";
-import LoadingAnimation from "../LoadingAnimation";
-import RightArrowIcon from "../../assets/icons/right-arrow-icon.svg";
 
 function UpdatesRow(props) {
   const listItemStyle = {
-    margin: "5px 0 5px 50px",
-    padding: "5px 0",
-    cursor: "pointer",
-    boxSize: "border-box",
+    width: "100%",
     fontSize: "18px",
+    color: "rgb(41, 151, 255)",
+    cursor: "pointer",
+    textDecoration: "underline",
   };
 
   return (
@@ -39,43 +37,37 @@ function Updates(props) {
     }
   }, [updates]);
 
-  const updatesContainerStyle = {
-    padding: "0 0 10px 0",
+  const listStyle = {
+    minWidth: "300px",
+    padding: "0px",
+    backgroundColor: "#000",
+    listStyleType: "none",
+    textAlign: "left",
   };
-  const updatesContainerTitleStyle = {
+  const listTitleWrapperStyle = {
     width: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     cursor: "pointer",
   };
-  const updatesStyle = {
+  const listTitleStyle = {
     fontSize: "24px",
-    color: "#888",
+    color: "#f5f5f7",
     fontFamily: "Raleway",
     fontStyle: "normal",
     fontWeight: "600",
     lineHeight: "normal",
   };
-  const rightArrowIconStyle = {
-    fontSize: "28px",
-    fontWeight: "400",
-    width: "20px",
-  };
 
   return (
     <>
-      <ul id="updates-container" style={updatesContainerStyle}>
+      <ul id="updates-list" style={listStyle}>
         <div
-          style={updatesContainerTitleStyle}
+          style={listTitleWrapperStyle}
           onClick={() => (window.location.href = "/updates")}
         >
-          <h1 style={updatesStyle}>Updates &nbsp;</h1>
-          <img
-            src={RightArrowIcon}
-            style={rightArrowIconStyle}
-            alt="expand button"
-          ></img>
+          <h1 style={listTitleStyle}>Updates</h1>
         </div>
 
         {updates != null &&

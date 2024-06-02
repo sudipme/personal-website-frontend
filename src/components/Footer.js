@@ -4,14 +4,15 @@ function Footer() {
   const footerContainerStyle = {
     width: "100vw",
     height: "50px",
-    backgroundColor: "#252A30",
+    backgroundColor: "#323232",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    borderTop: "1px solid rgb(66, 66, 69)",
   };
   const contentStyle = {
-    color: "#fff",
-    fontFamily: "Open Sans",
+    color: "#f5f5f7",
+    fontFamily: "Montserrat",
     fontSize: "14px",
     fontStyle: "normal",
     fontWeight: "400",

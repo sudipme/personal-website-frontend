@@ -24,16 +24,12 @@ function TopBar() {
   };
 
   const titleStyle = {
-    color: "#fff",
+    color: "rgb(245, 245, 247)",
     fontFamily: "Montserrat",
     fontStyle: "normal",
-    fontWeight: "400",
+    fontWeight: "500",
     lineHeight: "normal",
     cursor: "pointer",
-  };
-  const topLineStyle = {
-    height: "2px",
-    background: "#888", //#0077B5
   };
   return (
     <div id="top-bar-container" style={containerStyle}>
@@ -47,7 +43,6 @@ function TopBar() {
         </h1>
         <SocialLinks />
       </div>
-      {/* <div id="top-line" style={topLineStyle}></div> */}
     </div>
   );
 }
@@ -68,6 +63,12 @@ function SocialLinks() {
   return (
     <div id="links-container" style={containerStyle}>
       <img
+        src={SendMailLogo}
+        style={iconStyle}
+        onClick={() => (window.location.href = "/mail")}
+        alt="button to send mail to sudip halder"
+      ></img>
+      <img
         src={LinkedinLogo}
         style={iconStyle}
         onClick={() =>
@@ -86,12 +87,6 @@ function SocialLinks() {
         style={iconStyle}
         onClick={() => window.open("https://github.com/sudipme", "_blank")}
         alt="button to visit sudip halder's github profile"
-      ></img>
-      <img
-        src={SendMailLogo}
-        style={iconStyle}
-        onClick={() => (window.location.href = "/mail")}
-        alt="button to send mail to sudip halder"
       ></img>
     </div>
   );

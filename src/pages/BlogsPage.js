@@ -13,7 +13,7 @@ function BlogsRow(props) {
   const blogTitleStyle = {
     margin: "5px 0px",
     textAlign: "left",
-    color: "#fff",
+    color: "#f5f5f7",
     fontSize: "1.5em",
     fontFamily: "Exo",
     fontStyle: "normal",
@@ -34,7 +34,7 @@ function BlogsRow(props) {
     <div
       id="blogs-row-container"
       style={blogRowContainerStyle}
-      onClick={() => window.open(props.link, "_blank")}
+      onClick={() => (window.location.href = props.link)}
     >
       <h2 id="blog-row-title" style={blogTitleStyle}>
         {props.title}
@@ -73,7 +73,7 @@ function BlogsPage() {
     flexDirection: "column",
     alignItems: "center",
     overflow: "hidden",
-    backgroundColor: "#111",
+    backgroundColor: "#000",
     // marginTop: "-1px",
   };
   const loadingAnimationContainerStyle = {
