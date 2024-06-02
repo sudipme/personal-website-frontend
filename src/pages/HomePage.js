@@ -231,7 +231,7 @@ function Links() {
     minWidth: "300px",
     padding: "0",
     listStyleType: "none",
-    textAlign: "left",
+    textAlign: "center",
   };
   const listTitleWrapperStyle = {
     width: "100%",
