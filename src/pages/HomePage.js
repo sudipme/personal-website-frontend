@@ -23,7 +23,7 @@ function HomePage() {
   const savedDateTime = localStorage.getItem("savedDateTime");
   const pageVisited = localStorage.getItem("pageVisited");
 
-  const maxTimeDifference = 10;
+  const maxTimeDifference = 5;
 
   // set new date time in local storage
   if (
@@ -39,19 +39,18 @@ function HomePage() {
       const savedDate = new Date(savedDateTime);
       const currentDate = new Date();
       const differenceInMilliseconds = currentDate - savedDate;
-      const differenceInMinutes = Math.floor(differenceInMilliseconds / 1000);
+      const differenceInMinutes = Math.floor(
+        differenceInMilliseconds / 1000 / 60,
+      );
       setTimeDifference(differenceInMinutes);
     }
   };
 
   useEffect(() => {
-    console.log("saved", savedDateTime);
     if (savedDateTime) {
       calculateTimeDifference();
     }
   }, []);
-
-  console.log(timeDifference);
 
   const highlightsLoaded = () => {
     setIsHighlightsLoaded(true);
@@ -70,7 +69,6 @@ function HomePage() {
     setAnimationTimeout(true);
   }, 3000);
 
-  console.log("page visited", pageVisited);
   useEffect(() => {
     if (pageVisited == null) {
       setDisplayPage(animationTimeout && allComponentsLoaded);

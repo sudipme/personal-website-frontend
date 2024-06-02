@@ -42,14 +42,14 @@ function Updates(props) {
   const updatesContainerStyle = {
     padding: "0 0 10px 0",
   };
-  const headingContainerStyle = {
+  const updatesContainerTitleStyle = {
     width: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     cursor: "pointer",
   };
-  const headingStyle = {
+  const updatesStyle = {
     fontSize: "24px",
     color: "#888",
     fontFamily: "Raleway",
@@ -67,10 +67,10 @@ function Updates(props) {
     <>
       <ul id="updates-container" style={updatesContainerStyle}>
         <div
-          style={headingContainerStyle}
+          style={updatesContainerTitleStyle}
           onClick={() => (window.location.href = "/updates")}
         >
-          <h1 style={headingStyle}>Updates &nbsp;</h1>
+          <h1 style={updatesStyle}>Updates &nbsp;</h1>
           <img
             src={RightArrowIcon}
             style={rightArrowIconStyle}

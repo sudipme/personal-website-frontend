@@ -63,8 +63,8 @@ function ProjectsCardGrid(props) {
 
   const gridStyle = {
     display: "grid",
-    rowGap: "20px",
-    columnGap: "20px",
+    rowGap: "25px",
+    columnGap: "25px",
     overflow: "hidden",
   };
 

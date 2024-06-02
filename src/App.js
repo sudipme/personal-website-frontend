@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Suspense, lazy } from "react";
+import React, { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./css/App.css";
 
@@ -32,14 +31,9 @@ function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {/* </Suspense> */}
       </BrowserRouter>
     </>
   );
-}
-
-function Loading() {
-  return <div>Loading...</div>;
 }
 
 export default App;
