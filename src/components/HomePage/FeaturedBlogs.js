@@ -30,7 +30,7 @@ function BlogsRow(props) {
     <div
       id="featured-blogs-row-container"
       style={blogRowContainerStyle}
-      onClick={() => window.open(props.link, "_blank")}
+      onClick={() => (window.location.href = props.link)}
     >
       <h2 id="featured-blog-title" style={blogTitleStyle}>
         {props.title}

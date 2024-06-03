@@ -36,7 +36,7 @@ function ProjectCard(props) {
 
   return (
     <div
-      onClick={() => window.open(props.link, "_blank")}
+      onClick={() => (window.location.href = props.link)}
       className="project-card"
       style={containerStyle}
     >
