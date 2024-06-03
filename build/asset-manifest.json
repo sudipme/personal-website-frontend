@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.7c78e5f2.css",
+    "main.css": "/static/css/main.ac80bf06.css",
     "main.js": "/static/js/main.c81c2287.js",
     "static/css/765.60f5e99b.chunk.css": "/static/css/765.60f5e99b.chunk.css",
     "static/js/765.7b498054.chunk.js": "/static/js/765.7b498054.chunk.js",
@@ -21,6 +21,9 @@
     "static/js/588.c0a07043.chunk.js": "/static/js/588.c0a07043.chunk.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
     "static/js/835.2d6d046b.chunk.js": "/static/js/835.2d6d046b.chunk.js",
+    "static/media/Montserrat-Regular.ttf": "/static/media/Montserrat-Regular.24785cc015b27a3e964b.ttf",
+    "static/media/Raleway-Regular.ttf": "/static/media/Raleway-Regular.d9219d8a361ac3530c7e.ttf",
+    "static/media/Exo-Regular.ttf": "/static/media/Exo-Regular.468e68658dba600527d8.ttf",
     "static/media/page-not-found-img.webp": "/static/media/page-not-found-img.0e2c401e76132b60ca0f.webp",
     "static/media/github-logo.svg": "/static/media/github-logo.2cd4d0e32e0656d17f8a767d2c6fa761.svg",
     "static/media/linkedin.svg": "/static/media/linkedin.e4cf0504f3c1e272d5a24aeafca23192.svg",
@@ -29,7 +32,7 @@
     "index.html": "/index.html",
     "static/media/send-mail.svg": "/static/media/send-mail.f8ed905e9db274d980b9165cbc0f9c6a.svg",
     "static/media/left-arrow.svg": "/static/media/left-arrow.b1d0f68f72ecd74379af3019a1f34fd5.svg",
-    "main.7c78e5f2.css.map": "/static/css/main.7c78e5f2.css.map",
+    "main.ac80bf06.css.map": "/static/css/main.ac80bf06.css.map",
     "main.c81c2287.js.map": "/static/js/main.c81c2287.js.map",
     "765.60f5e99b.chunk.css.map": "/static/css/765.60f5e99b.chunk.css.map",
     "765.7b498054.chunk.js.map": "/static/js/765.7b498054.chunk.js.map",
@@ -52,7 +55,7 @@
     "835.2d6d046b.chunk.js.map": "/static/js/835.2d6d046b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7c78e5f2.css",
+    "static/css/main.ac80bf06.css",
     "static/js/main.c81c2287.js"
   ]
 }
