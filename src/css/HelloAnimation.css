@@ -1,5 +1,8 @@
 #hello-wrapper {
     width: 25vw;
+    position: relative;
+    bottom: 50px;
+    left: 10px;
 }
 
 .hello {
@@ -7,10 +10,10 @@
     stroke: #f5f5f7;
     stroke-miterlimit: 10;
     stroke-linecap: round;
-    stroke-width: 3;
+    stroke-width: 4;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    animation: write 3s ease-in forwards;
+    animation: write 3s ease-in-out forwards;
 }
 
 @keyframes write {
@@ -22,5 +25,8 @@
 @media screen and (max-width: 768px) {
     #hello-wrapper {
         width: 40vw;
+        position: relative;
+        bottom: 50px;
+        left: 10px;
     }
 }
