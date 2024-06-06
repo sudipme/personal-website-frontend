@@ -13,11 +13,11 @@
 
 @media screen and (max-width: 768px) {
     #top-bar-elements-container {
-        width: 85vw;
+        width: 90vw;
         height: 60px;
     }
     #top-bar-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     #links-container {
         width: 150px;

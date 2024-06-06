@@ -66,6 +66,7 @@ function BlogsPage() {
   const blogsContainerStyle = {
     width: "100vw",
     minHeight: "100vh",
+    paddingTop: "20px",
     marginBottom: "0px",
     paddingBottom: "100px",
     boxSizing: "border-box",

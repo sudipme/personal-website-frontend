@@ -94,7 +94,7 @@ code {
 }
 @media screen and (max-width: 768px) {
     #blog-title-container {
-        width: 95%;
+        width: 90%;
         margin-top: 25px;
     }
     #blog-title {
