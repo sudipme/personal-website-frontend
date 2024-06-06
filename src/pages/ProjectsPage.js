@@ -32,13 +32,14 @@ function ProjectsPage() {
   }, [pageNumber]);
 
   const projectsContainerStyle = {
-    backgroundColor: "#000",
+    backgroundColor: "rgba(8,8,8)",
     minHeight: "100vh",
   };
 
   const loadingAnimationContainerStyle = {
     width: "100vw",
     height: "calc(100vh - 165px)",
+    backgroundColor: "rgba(8,8,8)"
   };
 
   return (

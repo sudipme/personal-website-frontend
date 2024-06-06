@@ -14,7 +14,8 @@ function TopBar() {
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
-    background: "#222",
+    background: "rgb(8,8,8)",
+
   };
 
   const elementsContainerStyle = {
@@ -25,9 +26,9 @@ function TopBar() {
 
   const titleStyle = {
     color: "rgb(245, 245, 247)",
-    fontFamily: "Montserrat",
+    fontFamily: "Sohne",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "400",
     lineHeight: "normal",
     cursor: "pointer",
   };

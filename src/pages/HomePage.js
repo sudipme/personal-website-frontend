@@ -89,7 +89,7 @@ function HomePage() {
     justifyContent: "flex-around",
     alignItems: "center",
     overflow: "hidden",
-    backgroundColor: "#000",
+    backgroundColor: "rgb(8,8,8)",
   };
 
   const loadingAnimationContainerStyle = {
@@ -98,7 +98,7 @@ function HomePage() {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#000",
+    backgroundColor: "rgba(8,8,8)",
   };
   const infoContainerStyle = {
     display: "flex",
