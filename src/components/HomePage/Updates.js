@@ -40,7 +40,7 @@ function Updates(props) {
   const listStyle = {
     minWidth: "300px",
     padding: "0px",
-    backgroundColor: "#000",
+    backgroundColor: "rgb(8,8,8)",
     listStyleType: "none",
     textAlign: "center",
   };
