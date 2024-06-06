@@ -1,5 +1,5 @@
 * {
-    color: #f5f5f7;
+    color: #ffffff;
 }
 h1,
 h2,
@@ -7,7 +7,6 @@ h3,
 h4,
 h5,
 h6 {
-    color: #fff;
 }
 #blogs-page {
     width: 100vw;
@@ -16,32 +15,35 @@ h6 {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #111;
+    background-color: rgb(8,8,8);
+
+    font-family: Sohne, sans-serif;
 }
 #blog-title-container {
-    width: 60%;
+    width: 80%;
     margin-top: 50px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 #blog-title {
-    color: #f5f5f7;
-    font-style: Raleway;
-    font-size: 32px;
-    font-weight: 600;
+    font-size: 4rem;
+    font-weight: 400;
     font-style: normal;
     line-height: 32px;
     display: inline;
+    font-family: Sohne, sans-serif;
 }
 #blogs-container {
-    width: 60%;
+    width: 50%;
     min-height: 100vh;
     line-height: 28px;
     margin-bottom: 100px;
+
+    font-size: 18px;
 }
 #blogs-container h1 {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
     font-style: normal;
     line-height: 30px;
@@ -57,10 +59,9 @@ h6 {
     margin-top: 40px;
 }
 #blogs-container p {
-    font-size: 20px;
-    margin: 0;
     padding: 0;
-    margin-top: 30px;
+    margin: 30px 0 0;
+    line-height: 1.75rem;
 }
 #blogs-container strong {
     font-size: 20px;
@@ -72,23 +73,28 @@ h6 {
 pre {
     overflow-x: auto;
     white-space: pre;
-    background-color: #222;
-    color: #ffffff;
-    padding: 10px;
+    background-color: #151515;
+    padding: 5px;
     margin: 20px 0;
     border-radius: 5px;
+
 }
 code {
-    background-color: #222;
-    color: #ffffff;
+    background-color: #151515;
     padding: 2px 4px;
     border-radius: 3px;
     font-family: monospace;
     font-size: 100%;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 1100px) {
+    #blogs-container, #blog-title-container {
+        width: 80%;
+    }
 }
 @media screen and (max-width: 768px) {
     #blog-title-container {
-        width: 90%;
+        width: 95%;
         margin-top: 25px;
     }
     #blog-title {
@@ -96,7 +102,8 @@ code {
         font-weight: 400;
     }
     #blogs-container {
-        width: 90%;
+        width: 100%;
+        padding: 0 20px;
     }
     #blogs-container h1 {
         font-size: 20px;
@@ -115,11 +122,9 @@ code {
         margin-top: 20px;
     }
     #blogs-container p {
-        font-size: 18px;
         line-height: 28px;
-        margin: 0;
         padding: 0;
-        margin-top: 30px;
+        margin: 30px 0 0;
     }
     #blogs-container strong {
         font-size: 18px;

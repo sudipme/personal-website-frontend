@@ -11,7 +11,7 @@ function BlogsRow(props) {
   const blogTitleStyle = {
     margin: "5px 0px",
     textAlign: "left",
-    fontFamily: "Exo",
+    fontFamily: "Sohne, sans-serif",
     fontStyle: "normal",
     fontWeight: "400",
     lineHeight: "normal",
@@ -20,7 +20,7 @@ function BlogsRow(props) {
     margin: "5px 0px",
     textAlign: "left",
     color: "#ccc",
-    fontFamily: "Exo 2",
+    fontFamily: "Sohne, sans-serif",
     fontStyle: "normal",
     fontWeight: "400",
     lineHeight: "normal",

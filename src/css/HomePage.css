@@ -14,7 +14,7 @@
     width: 50%;
 }
 #links-list li {
-    padding: 5px 0px;
+    padding: 5px 0;
 }
 @media screen and (max-width: 768px) {
     #about-me-container {
@@ -41,3 +41,4 @@
         padding: 5px 10px;
     }
 }
+
