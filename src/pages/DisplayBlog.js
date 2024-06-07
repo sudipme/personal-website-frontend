@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-
-import TopBar from "../components/TopBar.js";
 import Footer from "../components/Footer";
 import LoadingAnimation from "../components/LoadingAnimation.js";
 import "../css/DisplayBlog.css";
-import LeftArrowIcon from "../assets/icons/left-arrow.svg";
 
 import { ApiBaseUrl } from "../config.js";
 
@@ -54,7 +51,6 @@ function DisplayBlog() {
 
   return (
     <div id="blogs-page">
-      <TopBar />
       {markdown === "" ? (
         <div style={loadingAnimationContainerStyle}>
           {" "}

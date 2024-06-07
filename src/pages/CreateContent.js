@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BaseUrl, ApiBaseUrl } from "../config.js";
+import {  ApiBaseUrl } from "../config.js";
 import { useNavigate } from "react-router-dom";
 import "../css/CreateBlog.css";
 

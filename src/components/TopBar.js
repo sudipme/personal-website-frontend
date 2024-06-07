@@ -4,17 +4,48 @@ import LinkedinLogo from "../assets/icons/linkedin.svg";
 import XLogo from "../assets/icons/x-logo.svg";
 import GithubLogo from "../assets/icons/github-logo.svg";
 import { BaseUrl } from "../config.js";
+import {useState, useEffect} from "react";
 
 function TopBar() {
+  const [topbarPosition, setTopbarPosition] = useState("0");
+  const [lastScrollY, setLastScrollY] = useState(window.scrollY);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let currentScrollY = window.scrollY;
+      if (currentScrollY < 0) {
+        currentScrollY = 0;
+      }
+      if (document.documentElement.scrollHeight === window.innerHeight) {
+        setTopbarPosition("0");
+      } else if (currentScrollY >= document.documentElement.scrollHeight - window.innerHeight) {
+        setTopbarPosition("-60px");
+      } else {
+        setTopbarPosition(currentScrollY > lastScrollY ? "-60px" : "0");
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   const containerStyle = {
+    position: "fixed",
+    top: topbarPosition,
     width: "100vw",
+    height: "60px",
     padding: "0px",
     margin: "0px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
-    background: "rgb(8,8,8)",
+    transition: "top 0.5s ease-in-out",
+    overflow: "hidden"
 
   };
 
@@ -26,7 +57,7 @@ function TopBar() {
 
   const titleStyle = {
     color: "rgb(245, 245, 247)",
-    fontFamily: "Sohne",
+    fontFamily: "Sohne, sans-serif",
     fontStyle: "normal",
     fontWeight: "400",
     lineHeight: "normal",

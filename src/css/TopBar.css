@@ -1,3 +1,9 @@
+#top-bar-container{
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    background-color: rgba(8, 8, 8, 0.5); /* White with 10% opacity */
+    /*border-radius: 10px;*/
+}
 #top-bar-elements-container {
     width: 70vw;
     height: auto;
@@ -5,7 +11,7 @@
 }
 #top-bar-title {
     font-size: 36px;
-    margin: 20px 0;
+    margin:0;
 }
 #links-container {
     width: 200px;
@@ -14,7 +20,7 @@
 @media screen and (max-width: 768px) {
     #top-bar-elements-container {
         width: 90vw;
-        height: 60px;
+        /*height: 60px;*/
     }
     #top-bar-title {
         font-size: 2rem;

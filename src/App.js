@@ -2,6 +2,7 @@ import React, { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./css/App.css";
 
+const TopBar = lazy(() => import("./components/TopBar.js"));
 const HomePage = lazy(() => import("./pages/HomePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SendMail = lazy(() => import("./pages/SendMail"));
@@ -16,6 +17,8 @@ const LoginPage = lazy(() => import("./pages/LoginPage"));
 function App() {
   return (
     <>
+      <TopBar/>
+      <Spacer height="60px"/>
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
@@ -34,6 +37,14 @@ function App() {
       </BrowserRouter>
     </>
   );
+}
+
+function Spacer(props) {
+  const spacerStyle = {
+    height: props.height,
+    backgroundColor: "rgb(8,8,8)"
+  };
+  return <div id="spacer" style={spacerStyle}></div>;
 }
 
 export default App;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BaseUrl, ApiBaseUrl } from "../config.js";
-import TopBar from "../components/TopBar.js";
 import LoadingAnimation from "../components/LoadingAnimation.js";
 import "../css/BlogsPage.css";
 
@@ -84,7 +83,6 @@ function BlogsPage() {
 
   return (
     <div style={{ overflow: "hidden" }}>
-      <TopBar />
       {blogs === null ? (
         <div style={loadingAnimationContainerStyle}>
           {" "}
