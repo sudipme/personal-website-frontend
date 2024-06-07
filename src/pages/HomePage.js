@@ -91,6 +91,8 @@ function HomePage() {
         backgroundColor: "rgb(8,8,8)",
     };
     const loadingAnimationContainerStyle = {
+        position: "absolute",
+        top:"0",
         width: "100vw",
         height: "100vh",
         display: "flex",
