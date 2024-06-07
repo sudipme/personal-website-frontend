@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import Footer from "../components/Footer";
@@ -11,6 +12,8 @@ import { ApiBaseUrl } from "../config.js";
 function DisplayBlog() {
   const { blogId } = useParams();
   const [blogTitle, setBlogTitle] = useState("");
+  const [blogDescription, setBlogDescription] = useState("");
+  const [blogLink, setBlogLink] = useState("");
   const [markdown, setMarkdown] = useState("");
 
   useEffect(() => {
@@ -25,6 +28,8 @@ function DisplayBlog() {
       })
       .then((data) => {
         setBlogTitle(data.title);
+        setBlogDescription(data.description);
+        setBlogLink(data.link);
 
         //fetch the blog body from the blogFile
         return fetch(ApiBaseUrl + "blog-content/" + data.blog_file_name);
@@ -58,6 +63,23 @@ function DisplayBlog() {
         </div>
       ) : (
         <>
+          <Helmet>
+            <title>{blogTitle}</title>
+            <meta name="description" content={blogDescription}/>
+
+            {/* Open Graph meta tags */}
+            <meta property="og:title" content={blogTitle} />
+            <meta property="og:description" content={blogDescription} />
+            <meta property="og:image" content="https://api.sudip.me/file/default-link-preview.png" />
+            <meta property="og:url" content={blogLink} />
+            <meta property="og:type" content="article" />
+
+            {/* Twitter Card meta tags (optional) */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={blogTitle} />
+            <meta name="twitter:description" content={blogDescription} />
+            <meta name="twitter:image" content="https://api.sudip.me/file/default-link-preview.png" />
+          </Helmet>
           <div id="blog-title-container">
             <h1 id="blog-title"> {blogTitle}</h1>
           </div>

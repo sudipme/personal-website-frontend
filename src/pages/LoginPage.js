@@ -123,14 +123,20 @@ function LoginPage() {
       )}
       {isAuthenticated === true && (
         <>
-          <button style={buttonStyle} onClick={() => handleLogout()}>
-            log out{" "}
-          </button>
           <button
             style={buttonStyle}
             onClick={() => navigate("/create-content")}
           >
-            Create Content{" "}
+            Create Content
+          </button>
+          <button
+            style={buttonStyle}
+            onClick={() => navigate("/upload-file")}
+          >
+            Upload File
+          </button>
+          <button style={buttonStyle} onClick={() => handleLogout()}>
+            log out
           </button>
         </>
       )}
