@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from "react";
-import {ApiBaseUrl} from "../config.js";
+// import {ApiBaseUrl} from "../config.js";
 
 import HelloAnimation from "../components/HelloAnimation.js";
 import LoadingAnimation from "../components/LoadingAnimation.js";
-import TopBar from "../components/TopBar.js";
 import Updates from "../components/HomePage/Updates";
 import {FeaturedProjects} from "../components/HomePage/FeaturedProjects";
 import FeaturedBlogs from "../components/HomePage/FeaturedBlogs";
@@ -91,7 +90,6 @@ function HomePage() {
         overflow: "hidden",
         backgroundColor: "rgb(8,8,8)",
     };
-
     const loadingAnimationContainerStyle = {
         width: "100vw",
         height: "100vh",
@@ -124,7 +122,6 @@ function HomePage() {
                 id="home-page"
                 style={displayPage ? homePageStyle : {display: "none"}}
             >
-                <TopBar/>
                 <Spacer height="20px"/>
                 <div></div>
                 <AboutMe/>

@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   const footerContainerStyle = {
     width: "100vw",
-    height: "50px",
+    height: "25px",
     backgroundColor: "#323232",
     display: "flex",
     justifyContent: "center",

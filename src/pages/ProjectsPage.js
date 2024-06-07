@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { ApiBaseUrl } from "../config.js";
-import TopBar from "../components/TopBar";
 import ProjectsCardGrid from "../components/ProjectsCardGrid.js";
 import LoadingAnimation from "../components/LoadingAnimation.js";
 import "../css/ProjectsPage.css";
@@ -45,7 +44,6 @@ function ProjectsPage() {
   return (
     <div style={projectsContainerStyle}>
       <div id="projects-page-container">
-        <TopBar />
         {projects === null ? (
           <div style={loadingAnimationContainerStyle}>
             {" "}
