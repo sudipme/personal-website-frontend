@@ -3,41 +3,19 @@
     font-style: normal;
     font-weight: 100 400;
     font-display: swap;
-    src: url(../assets/fonts/sohne-buch.otf) format("opentype");
+    src: url(../../public/fonts/sohne-buch.otf) format("opentype");
 }
 @font-face {
     font-family: "Sohne";
     font-style: normal;
     font-weight: 500 700;
     font-display: swap;
-    src: url(../assets/fonts/sohne-kraftig.otf) format("opentype");
+    src: url(../../public/fonts/sohne-kraftig.otf) format("opentype");
 }
 @font-face {
     font-family: "Sohne";
     font-style: normal;
     font-weight: 700 900;
     font-display: swap;
-    src: url(../assets/fonts/sohne-halbfett.otf) format("opentype");
-}
-@font-face {
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url(../assets/fonts/Montserrat-Regular.ttf) format("truetype");
-}
-
-@font-face {
-    font-family: "Exo";
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url(../assets/fonts/Exo-Regular.ttf) format("truetype");
-}
-@font-face {
-    font-family: "Raleway";
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url(../assets/fonts/Raleway-Regular.ttf) format("truetype");
+    src: url(../../public/fonts/sohne-halbfett.otf) format("opentype");
 }

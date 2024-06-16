@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 // import {ApiBaseUrl} from "../config.js";
 
-import HelloAnimation from "../components/HelloAnimation.js";
 import LoadingAnimation from "../components/LoadingAnimation.js";
 import Updates from "../components/HomePage/Updates";
 import {FeaturedProjects} from "../components/HomePage/FeaturedProjects";
@@ -12,44 +11,10 @@ import RightArrowIcon from "../assets/icons/right-arrow-icon.svg";
 
 function HomePage() {
     const [displayPage, setDisplayPage] = useState(false);
-    const [animationTimeout, setAnimationTimeout] = useState(false);
     const [isUpdatesLoaded, setIsUpdatesLoaded] = useState(false);
     const [isFeaturedProjectsLoaded, setIsFeaturedProjectsLoaded] =
         useState(false);
     const [isFeaturedBlogsLoaded, setIsFeaturedBlogsLoaded] = useState(false);
-    const [timeDifference, setTimeDifference] = useState(null);
-
-    const savedDateTime = localStorage.getItem("savedDateTime");
-    const pageVisited = localStorage.getItem("pageVisited");
-
-    const maxTimeDifference = 10;
-
-    // set new date time in local storage
-    if (
-        savedDateTime == null ||
-        (timeDifference != null && timeDifference > maxTimeDifference)
-    ) {
-        const currentDateTime = new Date().toISOString();
-        localStorage.setItem("savedDateTime", currentDateTime);
-    }
-
-    const calculateTimeDifference = () => {
-        if (savedDateTime) {
-            const savedDate = new Date(savedDateTime);
-            const currentDate = new Date();
-            const differenceInMilliseconds = currentDate - savedDate;
-            const differenceInMinutes = Math.floor(
-                differenceInMilliseconds / 1000 / 60,
-            );
-            setTimeDifference(differenceInMinutes);
-        }
-    };
-
-    useEffect(() => {
-        if (savedDateTime) {
-            calculateTimeDifference();
-        }
-    }, []);
 
     const updatesLoaded = () => {
         setIsUpdatesLoaded(true);
@@ -64,21 +29,9 @@ function HomePage() {
     let allComponentsLoaded =
         isUpdatesLoaded && isFeaturedProjectsLoaded && isFeaturedBlogsLoaded;
 
-    setTimeout(() => {
-        setAnimationTimeout(true);
-    }, 3000);
-
     useEffect(() => {
-        if (pageVisited == null) {
-            setDisplayPage(animationTimeout && allComponentsLoaded);
-            animationTimeout && localStorage.setItem("pageVisited", true);
-        } else {
-            setDisplayPage(
-                (animationTimeout || timeDifference < maxTimeDifference) &&
-                allComponentsLoaded,
-            );
-        }
-    }, [allComponentsLoaded, animationTimeout, timeDifference]);
+        setDisplayPage(allComponentsLoaded);
+    }, [allComponentsLoaded]);
 
     const homePageStyle = {
         width: "100vw",
@@ -92,7 +45,7 @@ function HomePage() {
     };
     const loadingAnimationContainerStyle = {
         position: "absolute",
-        top:"0",
+        top: "0",
         width: "100vw",
         height: "100vh",
         display: "flex",
@@ -111,13 +64,7 @@ function HomePage() {
                     !displayPage ? loadingAnimationContainerStyle : {display: "none"}
                 }
             >
-                {pageVisited == null ? (
-                    <HelloAnimation/>
-                ) : timeDifference < maxTimeDifference ? (
-                    <LoadingAnimation/>
-                ) : (
-                    <HelloAnimation/>
-                )}
+                <LoadingAnimation/>
             </div>
 
             <div

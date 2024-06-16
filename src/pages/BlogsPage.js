@@ -77,7 +77,7 @@ function BlogsPage() {
   };
   const loadingAnimationContainerStyle = {
     width: "100vw",
-    height: "calc(100vh - 100px)",
+    height: "calc(100vh - 60px)",
     backgroundColor: "rgba(8,8,8)",
   };
 
