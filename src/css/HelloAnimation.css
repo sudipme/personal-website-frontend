@@ -13,7 +13,7 @@
     stroke-width: 4;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    animation: write 3s ease-in-out forwards;
+    animation: write 1s ease-in-out forwards;
 }
 
 @keyframes write {

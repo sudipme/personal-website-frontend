@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProjectsCardGrid from "../ProjectsCardGrid.js";
 import LoadingAnimation from "../LoadingAnimation.js";
-import { BaseUrl, ApiBaseUrl } from "../../config.js";
+import { ApiBaseUrl } from "../../config.js";
 
 export function FeaturedProjects(props) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
