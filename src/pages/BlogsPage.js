@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BaseUrl, ApiBaseUrl } from "../config.js";
-import TopBar from "../components/TopBar.js";
 import LoadingAnimation from "../components/LoadingAnimation.js";
 import "../css/BlogsPage.css";
 
@@ -13,7 +12,9 @@ function BlogsRow(props) {
   const blogTitleStyle = {
     margin: "5px 0px",
     textAlign: "left",
-    fontFamily: "Exo",
+    color: "#fff",
+    fontSize: "1.5em",
+    fontFamily: "Sohne, sans-serif",
     fontStyle: "normal",
     fontWeight: "400",
     lineHeight: "normal",
@@ -21,8 +22,8 @@ function BlogsRow(props) {
   const blogDescriptionStyle = {
     margin: "5px 0px",
     textAlign: "left",
-    color: "#bbb",
-    fontFamily: "Exo 2",
+    color: "#ddd",
+    fontFamily: "Sohne, sans-serif",
     fontStyle: "normal",
     fontWeight: "400",
     lineHeight: "normal",
@@ -32,7 +33,7 @@ function BlogsRow(props) {
     <div
       id="blogs-row-container"
       style={blogRowContainerStyle}
-      onClick={() => window.open(props.link, "_blank")}
+      onClick={() => (window.location.href = props.link)}
     >
       <h2 id="blog-row-title" style={blogTitleStyle}>
         {props.title}
@@ -64,6 +65,7 @@ function BlogsPage() {
   const blogsContainerStyle = {
     width: "100vw",
     minHeight: "100vh",
+    paddingTop: "20px",
     marginBottom: "0px",
     paddingBottom: "100px",
     boxSizing: "border-box",
@@ -71,17 +73,16 @@ function BlogsPage() {
     flexDirection: "column",
     alignItems: "center",
     overflow: "hidden",
-    backgroundColor: "#222",
-    marginTop: "-1px",
+    backgroundColor: "rgba(8,8,8)",
   };
   const loadingAnimationContainerStyle = {
     width: "100vw",
-    height: "calc(100vh - 165px",
+    height: "calc(100vh - 60px)",
+    backgroundColor: "rgba(8,8,8)",
   };
 
   return (
     <div style={{ overflow: "hidden" }}>
-      <TopBar />
       {blogs === null ? (
         <div style={loadingAnimationContainerStyle}>
           {" "}

@@ -1,25 +1,44 @@
-#about-me-container{
+#about-me-container {
     width: 70vw;
 }
-#about-me{
-    width: 50vw;
+#about-me {
     font-size: 20px;
 }
-#heading{
+#heading {
     font-size: 28px;
 }
-@media screen and (max-width: 768px){
-    #about-me-container{
+#info-container {
+    width: 70vw;
+}
+#links-list {
+    width: 50%;
+}
+#links-list li {
+    padding: 5px 0;
+}
+@media screen and (max-width: 768px) {
+    #about-me-container {
         width: 100vw;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    #about-me{
+    #about-me {
         width: 85vw;
         font-size: 16px;
     }
-    #heading{
+    #heading {
         font-size: 24px;
     }
+    #info-container {
+        width: 100vw;
+        flex-direction: column;
+    }
+    #links-list {
+        width: 100%;
+    }
+    #links-list li {
+        padding: 5px 10px;
+    }
 }
+

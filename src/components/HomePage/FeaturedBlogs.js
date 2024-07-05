@@ -11,7 +11,7 @@ function BlogsRow(props) {
   const blogTitleStyle = {
     margin: "5px 0px",
     textAlign: "left",
-    fontFamily: "Exo",
+    fontFamily: "Sohne, sans-serif",
     fontStyle: "normal",
     fontWeight: "400",
     lineHeight: "normal",
@@ -20,7 +20,7 @@ function BlogsRow(props) {
     margin: "5px 0px",
     textAlign: "left",
     color: "#ccc",
-    fontFamily: "Exo 2",
+    fontFamily: "Sohne, sans-serif",
     fontStyle: "normal",
     fontWeight: "400",
     lineHeight: "normal",
@@ -30,7 +30,7 @@ function BlogsRow(props) {
     <div
       id="featured-blogs-row-container"
       style={blogRowContainerStyle}
-      onClick={() => window.open(props.link, "_blank")}
+      onClick={() => (window.location.href = props.link)}
     >
       <h2 id="featured-blog-title" style={blogTitleStyle}>
         {props.title}
@@ -61,13 +61,13 @@ function FeaturedBlogs(props) {
     flexDirection: "column",
     judtifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#555",
+    backgroundColor: "#323232",
     overflow: "hidden",
     borderRadius: "50px 50px 0 0",
   };
   const blogsContainerTitleStyle = {
     textAlign: "center",
-    color: "#ddd",
+    color: "#f5f5f7",
     fontFamily: "Raleway",
     margin: "10px",
     fontStyle: "normal",

@@ -1,9 +1,8 @@
-#list-item {
-    width: 70vw;
+#updates-list {
+    width: 50%;
 }
-#updates-container {
-    background-color: #eee;
-    border-radius: 20px;
+#list-item {
+    padding: 5px 0px;
 }
 #expand-button-container {
     width: 100%;
@@ -13,10 +12,10 @@
     align-items: center;
 }
 @media screen and (max-width: 768px) {
-    #list-item {
-        width: 90vw;
+    #updates-list {
+        width: 100%;
     }
-    #updates-container {
-        border-radius: 36px;
+    #list-item {
+        padding: 5px 10px;
     }
 }

@@ -7,7 +7,7 @@ function ProjectCard(props) {
     height: "175px",
     borderRadius: "20px",
     border: "0.5px solid rgba(0, 0, 0, 0.1)",
-    background: "#222",
+    background: "#323232",
     filter: "drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.20))",
     cursor: "pointer",
     overflow: "hidden",
@@ -36,7 +36,7 @@ function ProjectCard(props) {
 
   return (
     <div
-      onClick={() => window.open(props.link, "_blank")}
+      onClick={() => (window.location.href = props.link)}
       className="project-card"
       style={containerStyle}
     >
@@ -63,8 +63,8 @@ function ProjectsCardGrid(props) {
 
   const gridStyle = {
     display: "grid",
-    rowGap: "20px",
-    columnGap: "20px",
+    rowGap: "25px",
+    columnGap: "25px",
     overflow: "hidden",
   };
 

@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Sohne";
+    font-style: normal;
+    font-weight: 100 400;
+    font-display: swap;
+    src: url(../../public/fonts/sohne-buch.otf) format("opentype");
+}
+@font-face {
+    font-family: "Sohne";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(../../public/fonts/sohne-kraftig.otf) format("opentype");
+}
+@font-face {
+    font-family: "Sohne";
+    font-style: normal;
+    font-weight: 700 900;
+    font-display: swap;
+    src: url(../../public/fonts/sohne-halbfett.otf) format("opentype");
+}

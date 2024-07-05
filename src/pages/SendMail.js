@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ApiBaseUrl } from "../config.js";
+import TopBar from "../components/TopBar.js";
 import "../css/SendMail.css";
 
 function redirectTo(link) {
@@ -57,55 +58,57 @@ function SendMail() {
   };
 
   return (
-    <div id="send-mail-main-container">
-      <form id="contact-form" onSubmit={handleSubmit} name="mail-form">
-        <div id="contact-form-input-container">
-          <input
-            className="form-input"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Name"
-            maxLength="20"
-            required
-          />
+    <>
+      <div id="send-mail-main-container">
+        <form id="contact-form" onSubmit={handleSubmit} name="mail-form">
+          <div id="contact-form-input-container">
+            <input
+              className="form-input"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
+              maxLength="20"
+              required
+            />
 
-          <input
-            className="form-input"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email Id"
-            maxLength="50"
-            required
-          />
+            <input
+              className="form-input"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email Id"
+              maxLength="50"
+              required
+            />
 
-          <textarea
-            id="message-textbox"
-            className="form-input"
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="Message . . ."
-            maxLength="1000"
-            required
-          ></textarea>
-          <p id="response-msg" style={{ color: color }}>
-            {responseMessage}
-          </p>
-        </div>
+            <textarea
+              id="message-textbox"
+              className="form-input"
+              type="text"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Message . . ."
+              maxLength="1000"
+              required
+            ></textarea>
+            <p id="response-msg" style={{ color: color }}>
+              {responseMessage}
+            </p>
+          </div>
 
-        <div id="contact-form-submit-btn-container">
-          <button
-            id="back-button"
-            onClick={() => redirectTo("https://sudip.me")}
-          >
-            Cancel
-          </button>
-          <input type="submit" id="submit-btn" value="Submit" />
-        </div>
-      </form>
-    </div>
+          <div id="contact-form-submit-btn-container">
+            <button
+              id="back-button"
+              onClick={() => redirectTo("https://sudip.me")}
+            >
+              Cancel
+            </button>
+            <input type="submit" id="submit-btn" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
 

@@ -1,12 +1,12 @@
-/* Add this at the top of your index.css file */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Exo:wght@400;500;700&family=Raleway:wght@400;700&display=swap');
 * {
     -webkit-tap-highlight-color: #00000010;
+    box-sizing: border-box;
 }
+
 ::selection {
     background: rgba(198, 230, 188);
 }
 ::-moz-selection {
     color: white;
     background: black;
-  }
+}

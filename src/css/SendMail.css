@@ -1,13 +1,13 @@
-#send-mail-main-container{
+#send-mail-main-container {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 60px);
+    min-height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: rgb(8,8,8);
 }
-#contact-form{
-    position: absolute;
+#contact-form {
     top: 50px;
     width: 80%;
     height: 80%;
@@ -15,7 +15,7 @@
     flex-flow: column;
     align-items: center;
 }
-#contact-form-input-container{
+#contact-form-input-container {
     width: 100%;
     height: 80%;
     display: flex;
@@ -23,60 +23,46 @@
     justify-content: space-around;
     align-items: center;
 }
-.form-input{
+.form-input {
     width: 50%;
     height: 50px;
     padding-left: 20px;
     margin: 10px;
 
-    color: black;
-    font-size: 24px;
+    color: white;
+    font-size: 18px;
     line-height: 24px;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
-
     border-radius: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.10); 
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.20); 
-    background-color: rgba(67, 64, 64, 0.00);
+    border: 1px solid #555;
+    background-color: transparent;
 }
-.form-input:focus{
+.form-input:focus {
     outline: none;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.20); 
+    border: 2px solid rgba(41, 151, 255, 1);
 }
-.form-input::placeholder{
+.form-input::placeholder {
     padding-left: 10px;
-    color: rgba(0, 0, 0, 0.25);
-    font-size: 24px;
+    color: #aaa;
+    font-size: 18px;
     line-height: 24px;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
 }
-.form-input:focus::placeholder{
+.form-input:focus::placeholder {
     color: transparent;
 }
-#message-textbox{
-    width: 50%;
+#message-textbox {
     min-height: 50%;
     max-height: 100%;
     padding: 20px 0 0 20px;
     font-size: 16px;
-
-    border-radius: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.10); 
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.20); 
-    background-color: rgba(67, 64, 64, 0.00);
+    resize: none;
 }
-#message-textbox:focus{
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.20);  
-    outline: none;
-}
-#message-textbox::placeholder{
-    font-size: 16px;
-}
-#response-msg{
+#response-msg {
     margin: 0;
 
     text-align: center;
@@ -84,78 +70,79 @@
     font-size: 20px;
     font-weight: bold;
 }
-#contact-form-submit-btn-container{
+#contact-form-submit-btn-container {
     height: 20%;
+    max-width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#submit-btn{
+#submit-btn {
     width: 200px;
     height: 50px;
-    margin: 5px;
+    margin: 5px 5px 5px 10px;
 
-    color: #FFF;
-    font-family: 'Inter', sans-serif;
+    color: #fff;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
 
-    background-color: black;
+    background-color: #252525;
     border: none;
     border-radius: 20px;
 }
-#back-button{
+#back-button {
     width: 200px;
     height: 50px;
-    margin: 5px;
+    margin: 5px 10px 5px 5px;
 
-    color: #FFF;
-    font-family: 'Inter', sans-serif;
+    color: #ddd;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
 
-    background-color: rgba(0, 0, 0, 0.571);
+    background-color: #111;
     border: none;
     border-radius: 20px;
 }
 
-@media screen and (max-width: 1300px) {
-
-    #contact-form-submit-btn-container{
+@media screen and (max-width: 1100px) {
+    #contact-form {
+        width: 90%;
+    }
+    #contact-form-submit-btn-container {
         height: 10%;
     }
-    .form-input{
+    .form-input {
         width: 100%;
         height: 50px;
-
         font-size: 20px;
     }
-    .form-input::placeholder{
+    .form-input::placeholder {
         font-size: 20px;
     }
 
-    #message-textbox{
+    #message-textbox {
         width: 100%;
     }
-    #submit-btn{
-        width: 150px;
-        height: 40px;
-        font-size: 20px;
-        margin: 10px;
-
-    }
-    #back-button{
+    #submit-btn {
         width: 150px;
         height: 40px;
         font-size: 20px;
         margin: 10px;
     }
+    #back-button {
+        width: 150px;
+        height: 40px;
+        font-size: 20px;
+        margin: 10px;
+    }
 
-    #response-msg{
+    #response-msg {
         font-size: 16px;
     }
 }

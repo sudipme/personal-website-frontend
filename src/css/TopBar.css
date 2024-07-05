@@ -1,30 +1,31 @@
-#top-bar-elements-container{
+#top-bar-container{
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    background-color: rgba(8, 8, 8, 0.5); /* White with 10% opacity */
+    /*border-radius: 10px;*/
+}
+#top-bar-elements-container {
     width: 70vw;
+    height: auto;
     max-width: 1300px;
 }
-#top-bar-title{
-    font-size: 28px;
+#top-bar-title {
+    font-size: 36px;
+    margin:0;
 }
-#top-line{
-    width: 90vw;
-    max-width: 1500px;
-}
-#links-container{
+#links-container {
     width: 200px;
 }
 
-
-@media screen and (max-width: 768px){
-    #top-bar-elements-container{
-        width: 85vw;
-    }
-    #top-bar-title{
-        font-size: 24px;
-    }
-    #top-line{
+@media screen and (max-width: 768px) {
+    #top-bar-elements-container {
         width: 90vw;
+        /*height: 60px;*/
     }
-    #links-container{
+    #top-bar-title {
+        font-size: 2rem;
+    }
+    #links-container {
         width: 150px;
     }
 }
