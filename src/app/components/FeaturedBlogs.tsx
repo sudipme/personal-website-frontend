@@ -61,7 +61,7 @@ interface FeaturedBlog {
 
 async function getFeaturedBlogs(): Promise<FeaturedBlog[]> {
     try {
-        const response = await fetch(ApiBaseUrl + "featured-blogs", { cache: 'no-store' });
+        const response = await fetch(ApiBaseUrl + "featured-blogs");
         if (!response.ok) {
             throw new Error('Failed to fetch featured blogs');
         }

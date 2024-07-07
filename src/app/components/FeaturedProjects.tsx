@@ -13,7 +13,7 @@ interface FeaturedProject {
 
 async function getFeaturedProjects(): Promise<FeaturedProject[]> {
   try {
-    const response = await fetch(ApiBaseUrl + "featured-projects", { cache: 'no-store' });
+    const response = await fetch(ApiBaseUrl + "featured-projects");
     if (!response.ok) {
       throw new Error('Failed to fetch featured projects');
     }

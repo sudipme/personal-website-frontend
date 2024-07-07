@@ -21,7 +21,7 @@ interface ProjectResponse {
     total_pages: number;
 }
 async function getProjects(page: number): Promise<ProjectResponse> {
-    const res = await fetch(`${ApiBaseUrl}projects-page/${page}`, { cache: 'no-store' });
+    const res = await fetch(`${ApiBaseUrl}projects-page/${page}`);
     if (!res.ok) {
         throw new Error('Failed to fetch projects');
     }

@@ -60,9 +60,9 @@ function NavBar() {
 
   const titleStyle = {
     color: "rgb(245, 245, 247)",
-    fontFamily: "Sohne, sans-serif",
+    fontFamily: "Raleway, sans-serif",
     fontStyle: "normal",
-    fontWeight: "400",
+    fontWeight: "600",
     lineHeight: "normal",
     cursor: "pointer",
   };

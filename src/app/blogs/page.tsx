@@ -72,7 +72,7 @@ interface BlogsResponse {
 }
 
 async function getBlogs(page: number): Promise<BlogsResponse> {
-  const res = await fetch(`${ApiBaseUrl}blogs-page/${page}`, { cache: 'no-store' });
+  const res = await fetch(`${ApiBaseUrl}blogs-page/${page}`);
   if (!res.ok) {
     throw new Error('Failed to fetch blogs');
   }
@@ -102,7 +102,7 @@ export default async function BlogsPage({ searchParams }: { searchParams: { page
         {Object.values(blogs).map((blog) => (
           <BlogsRow
             key={blog.time_stamp}
-            link={`${BaseUrl}blogs/${blog.blog_id}`}
+            link={`/blogs/${blog.blog_id}`}
             title={blog.blog_title}
             description={blog.blog_description}
           />

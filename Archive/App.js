@@ -6,11 +6,11 @@ const HomePage = lazy(() => import("./HomePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SendMail = lazy(() => import("./SendMail"));
 const DisplayBlog = lazy(() => import("./DisplayBlog"));
-const CreateContent = lazy(() => import("../src/pages/CreateContent"));
-const UploadFile = lazy(() => import("../src/pages/UploadFile"));
+const CreateContent = lazy(() => import("../src/otherPages/CreateContent"));
+const UploadFile = lazy(() => import("../src/otherPages/UploadFile"));
 const BlogsPage = lazy(() => import("./pages/BlogsPage"));
 const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
-const MyPage = lazy(() => import("../src/pages/MyPage"));
+const MyPage = lazy(() => import("../src/otherPages/MyPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 
 function App() {

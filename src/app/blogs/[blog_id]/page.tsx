@@ -48,7 +48,7 @@ interface Blog {
 
 async function getBlog(blogId: string): Promise<Blog> {
   try {
-    const response = await fetch(`${ApiBaseUrl}blog/${blogId}`, { cache: 'no-store' });
+    const response = await fetch(`${ApiBaseUrl}blog/${blogId}`);
     if (!response.ok) {
       notFound();
     }
@@ -61,7 +61,7 @@ async function getBlog(blogId: string): Promise<Blog> {
 
 async function getBlogContent(blogFileName: string): Promise<string> {
   try {
-    const response = await fetch(`${ApiBaseUrl}blog-content/${blogFileName}`, { cache: 'no-store' });
+    const response = await fetch(`${ApiBaseUrl}blog-content/${blogFileName}`);
     if (!response.ok) {
       throw new Error("Error fetching blog content");
     }
