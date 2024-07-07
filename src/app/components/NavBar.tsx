@@ -1,6 +1,6 @@
-'use client';
-import React, {CSSProperties, useState, useEffect} from "react";
+import React, {CSSProperties} from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import "@styles/NavBar.css";
 
@@ -10,48 +10,6 @@ import XLogo from "@icons/x-logo.svg";
 import GithubLogo from "@icons/github-logo.svg";
 
 function NavBar() {
-  const [topbarPosition, setTopbarPosition] = useState("0");
-  const [lastScrollY, setLastScrollY] = useState(window.scrollY);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      let currentScrollY = window.scrollY;
-      if (currentScrollY < 0) {
-        currentScrollY = 0;
-      }
-      if (document.documentElement.scrollHeight === window.innerHeight) {
-        setTopbarPosition("0");
-      } else if (currentScrollY >= document.documentElement.scrollHeight - window.innerHeight) {
-        setTopbarPosition("-60px");
-      } else {
-        setTopbarPosition(currentScrollY > lastScrollY ? "-60px" : "0");
-      }
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollY]);
-
-  const containerStyle: CSSProperties = {
-    position: "fixed",
-    top: topbarPosition,
-    width: "100vw",
-    height: "60px",
-    padding: "0px",
-    margin: "0px",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
-    transition: "top 0.5s ease-in-out",
-    overflow: "hidden",
-    borderRadius: "0 0 10px 10px",
-  };
-
   const elementsContainerStyle = {
     display: "flex",
     alignItems: "center",
@@ -60,26 +18,19 @@ function NavBar() {
 
   const titleStyle = {
     color: "rgb(245, 245, 247)",
-    fontFamily: "Raleway, sans-serif",
+    fontFamily: "var(--font-raleway)",
     fontStyle: "normal",
-    fontWeight: "600",
+    fontWeight: "400",
     lineHeight: "normal",
     cursor: "pointer",
   };
   return (
-    <div id="top-bar-container" style={containerStyle}>
-      <div id="top-bar-elements-container" style={elementsContainerStyle}>
+      <div className="top-bar-elements-container" style={elementsContainerStyle}>
         <Link href="/">
-        <h1
-          id="top-bar-title"
-          style={titleStyle}
-        >
-          Sudip Halder
-        </h1>
+          <h1 className="top-bar-title" style={titleStyle}>SUDIP HALDER</h1>
         </Link>
         <SocialLinks />
       </div>
-    </div>
   );
 }
 
@@ -91,40 +42,47 @@ function SocialLinks() {
     alignItems: "center",
   };
   const iconStyle = {
-    height: "30px",
     margin: "5px",
     borderRadius: "5px",
     cursor: "pointer",
   };
   return (
-    <div id="links-container" style={containerStyle}>
+    <div className="links-container" style={containerStyle}>
       <Link href="/mail">
-        <img
-          src={SendMailLogo.src}
-          style={iconStyle}
+        <Image
+          src={SendMailLogo}
+          width={30}
+          height={30}
           alt="button to send mail to sudip halder"
-        ></img>
+          style={iconStyle}
+        />
       </Link>
       <Link href="https://linkedin.com/in/sudiphalder" target="_blank">
-        <img
-          src={LinkedinLogo.src}
-          style={iconStyle}
+        <Image
+          src={LinkedinLogo}
+          width={30}
+          height={30}
           alt="button to visit sudip halder's linkedin profile"
-        ></img>
+          style={iconStyle}
+        />
       </Link>
       <Link href="https://x.com/sudiphl" target="_blank">
-        <img
-          src={XLogo.src}
-          style={iconStyle}
+        <Image
+          src={XLogo}
+          width={30}
+          height={30}
           alt="button to visit sudip halder's twitter profile"
-        ></img>
+          style={iconStyle}
+        />
       </Link>
       <Link href="https://github.com/sudipme" target="_blank">
-        <img
-          src={GithubLogo.src}
-          style={iconStyle}
+        <Image
+          src={GithubLogo}
+          width={30}
+          height={30}
           alt="button to visit sudip halder's github profile"
-        ></img>
+          style={iconStyle}
+        />
       </Link>
     </div>
   );

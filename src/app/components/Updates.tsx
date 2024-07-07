@@ -15,7 +15,7 @@ const UpdatesRow: React.FC<UpdatesRowProps> = ({ content, link }) => {
     padding: "10px",
     fontSize: "18px",
     fontWeight: "300",
-    fontFamily: "Raleway",
+    fontFamily: "var(--font-raleway)",
     color: "white",
     cursor: "pointer",
     textDecoration: "none",
@@ -75,7 +75,7 @@ const Updates: React.FC = async () => {
   const listTitleStyle: CSSProperties = {
     fontSize: "28px",
     color: "#f5f5f7",
-    fontFamily: "Raleway",
+    fontFamily: "var(--font-raleway)",
     fontStyle: "normal",
     fontWeight: "400",
     lineHeight: "normal",

@@ -40,7 +40,7 @@ const FeaturedProjects: React.FC = async () => {
     fontSize: "28px",
     textAlign: "center",
     color: "#f5f5f7",
-    fontFamily: "Raleway",
+    fontFamily: "var(--font-raleway)",
     margin: "18px",
     fontStyle: "normal",
     fontWeight: "400",

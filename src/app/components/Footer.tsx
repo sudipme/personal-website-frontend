@@ -11,7 +11,7 @@ function Footer() {
   };
   const contentStyle: CSSProperties = {
     color: "#f5f5f7",
-    fontFamily: "Montserrat",
+    fontFamily: "var(--font-montserrat)",
     fontSize: "14px",
     fontStyle: "normal",
     fontWeight: "400",

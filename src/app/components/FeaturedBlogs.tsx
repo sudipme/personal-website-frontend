@@ -89,7 +89,7 @@ const FeaturedBlogs: React.FC = async () => {
     const blogsContainerTitleStyle: CSSProperties = {
         textAlign: "center",
         color: "#f5f5f7",
-        fontFamily: "Raleway",
+        fontFamily: "var(--font-raleway)",
         margin: "10px",
         fontStyle: "normal",
         fontWeight: "400",
@@ -106,7 +106,7 @@ const FeaturedBlogs: React.FC = async () => {
     const viewAllStyle: CSSProperties = {
         textAlign: "center",
         color: "#ddd",
-        fontFamily: "Raleway",
+        fontFamily: "var(--font-raleway)",
         fontSize: "20px",
         fontStyle: "normal",
         fontWeight: 400,

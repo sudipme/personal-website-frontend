@@ -4,9 +4,7 @@ import Link from "next/link";
 import Updates from "./components/Updates";
 import FeaturedProjects from "./components/FeaturedProjects";
 import FeaturedBlogs from "./components/FeaturedBlogs";
-
 import "@styles/HomePage.css";
-import RightArrowIcon from "@public/icons/right-arrow-icon.svg";
 
 
 function HomePage() {
@@ -54,7 +52,7 @@ function HomePage() {
 function AboutMe() {
     const paragraphStyle = {
         color: "#f5f5f7",
-        fontFamily: "Montserrat",
+        fontFamily: "var(--font-montserrat)",
         fontStyle: "normal",
         lineHeight: "normal",
     };
@@ -87,43 +85,6 @@ function AboutMe() {
     );
 }
 
-function Heading(props) {
-    const headingContainerStyle = {
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        cursor: "pointer",
-    };
-    const headingStyle = {
-        fontSize: "28px",
-        color: "#f5f5f7",
-        fontFamily: "Raleway",
-        fontStyle: "normal",
-        fontWeight: "400",
-        lineHeight: "normal",
-    };
-    const rightArrowIconStyle = {
-        fontSize: "28px",
-        fontWeight: "400",
-        width: "20px",
-    };
-    return (
-        <Link href={props.link}>
-        <div
-            style={headingContainerStyle}
-        >
-            <h1 style={headingStyle}>{props.title} &nbsp;</h1>
-            <img
-                src={RightArrowIcon.src}
-                style={rightArrowIconStyle}
-                alt="expand button"
-            ></img>
-        </div>
-        </Link>
-    );
-}
-
 function Spacer(props) {
     const spacerStyle = {
         height: props.height,
@@ -148,7 +109,7 @@ function Links() {
     const listTitleStyle = {
         fontSize: "28px",
         color: "#f5f5f7",
-        fontFamily: "Raleway",
+        fontFamily: "var(--font-raleway)",
         fontStyle: "normal",
         fontWeight: "400",
         lineHeight: "normal",
@@ -158,7 +119,7 @@ function Links() {
         padding: "10px",
         fontSize: "18px",
         fontWeight: 300,
-        fontFamily: "Raleway",
+        fontFamily: "var(--font-raleway)",
         color: "white",
         textDecoration: "none",
         cursor: "pointer",
