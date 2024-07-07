@@ -7,11 +7,9 @@
 }
 #featured-blog-title {
     font-size: 24px;
-    /* color: #005985; */
     color: #fff;
 }
 #featured-blogs-row-container:hover #featured-blog-title {
-    /* color: #007fbe;  */
     color: #aaa;
 }
 #featured-blog-description {
