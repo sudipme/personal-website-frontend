@@ -4,7 +4,7 @@ function Footer() {
   const footerContainerStyle: CSSProperties = {
     width: "100vw",
     height: "32px",
-    backgroundColor: "#222",
+    backgroundColor: "rgb(16,16,16)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

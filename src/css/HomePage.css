@@ -16,6 +16,54 @@
 #links-list li {
     padding: 5px 0;
 }
+.glowing-border {
+    padding: 5px;
+    background-color: black;
+    border-radius: 28px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+.glowing-border > * {
+    position: relative;
+    z-index: 2;
+}
+.glowing-border::before {
+    content: '';
+    position: absolute;
+    top: -200%;
+    left: -200%;
+    width: 500%;
+    height: 500%;
+    background: conic-gradient(
+        from 0deg,
+        white,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.3),
+        white
+    );
+    animation: rotate-border 4s linear infinite;
+}
+.glowing-border::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: black;
+    border-radius: 28px;
+    z-index: 0;
+}
+@keyframes rotate-border {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @media screen and (max-width: 768px) {
     #about-me-container {
         width: 100vw;

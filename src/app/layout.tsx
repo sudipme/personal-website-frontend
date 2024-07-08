@@ -1,15 +1,39 @@
 import "./global.css";
+import { CSSProperties } from "react";
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Exo, Montserrat, Raleway } from 'next/font/google'
  
+import {BaseUrl} from "@utils/config.js";
+import defaultLinkPreview from "@public/images/default-link-preview.png";
 import Footer from './components/Footer'
 const NavBarWrapper = dynamic(() => import('app/components/NavBarWrapper'), { ssr: false })
 
  
 export const metadata: Metadata = {
   title: 'Sudip Halder',
-  description: 'Sudip Halder is a Software Developer and a Machine Learning expert. Read his blogs on Machine Learning and AI, and learn more about his projects and experiences.',
+  description: 'Sudip Halder is a Software Developer and a Machine Learning expert. Read his Blogs on Machine Learning and AI.',
+  metadataBase: new URL(BaseUrl),
+  openGraph: {
+    title: 'Sudip Halder',
+    description: 'Sudip Halder is a Software Developer and a Machine Learning expert. Read his Blogs on Machine Learning and AI.',
+    type: 'website',
+    url: BaseUrl,
+    images: [
+      {
+        url: defaultLinkPreview.src,
+        width: 800,
+        height: 600,
+        alt: "Sudip Halder",
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sudip Halder',
+    description: 'Sudip Halder is a Software Developer and a Machine Learning expert. Read his Blogs on Machine Learning and AI.',
+    images: [defaultLinkPreview.src],
+  },
 }
 
 const exo = Exo({
@@ -30,6 +54,15 @@ const raleway = Raleway({
   variable: '--font-raleway',
 })
 
+const glowEffect: CSSProperties = {
+  width: '100vw',
+  height: '60px',
+  position: 'fixed',
+  top: '-60px',
+  boxShadow: "0px 0px 300px 0px #fff",
+  zIndex: 0,
+}
+
 
 export default function RootLayout({
     children,
@@ -41,6 +74,7 @@ export default function RootLayout({
         <head></head>
         <body>
             <NavBarWrapper />
+            <div style={glowEffect}></div>
             <div id="navbar-spacer" style={{height:'60px', backgroundColor: "rgb(8,8,8)"}}></div>
             <div id="root">{children}</div>
             <Footer />

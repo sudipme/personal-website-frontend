@@ -43,9 +43,8 @@ function NavBarWrapper() {
         alignItems: "center",
         transition: "top 0.5s ease-in-out",
         overflow: "hidden",
-        borderRadius: "0 0 10px 10px",
-        backdropFilter: "blur(10px)",
-        backgroundColor: "rgba(8, 8, 8, 0.5)",
+        backdropFilter: "blur(20px)",
+        zIndex: 100,
       };
 
 

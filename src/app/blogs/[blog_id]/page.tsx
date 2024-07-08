@@ -82,7 +82,7 @@ const DisplayBlog: React.FC = async ({ params }: { params: { blog_id: string } }
       <div id="blog-title-container">
         <h1 id="blog-title">{blog.title}</h1>
       </div>
-      <div id="blogs-container">
+      <div id="blogs-container" style={{zIndex: 0}}>
         <ReactMarkdown rehypePlugins={[rehypeRaw]}>
           {markdown}
         </ReactMarkdown>

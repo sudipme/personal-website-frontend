@@ -78,13 +78,19 @@ const FeaturedBlogs: React.FC = async () => {
 
     const blogsContainerStyle: CSSProperties = {
         width: "100vw",
+        marginTop: "20px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "#323232",
+        backgroundColor: "black",
         overflow: "hidden",
         borderRadius: "50px 50px 0 0",
+        border: "1px solid #fff",
+        borderRight: "0",
+        borderBottom: "0",
+        borderLeft: "0",
+        boxShadow: "0px 50px 150px 0px #fff",
     };
     const blogsContainerTitleStyle: CSSProperties = {
         textAlign: "center",
