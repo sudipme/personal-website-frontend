@@ -23,7 +23,7 @@ function HomePage() {
         display: "flex",
         alignItems: "flex-start",
         backgroundColor: "#000",
-        border: "1px solid rgba(255, 255, 255, 0.2)",
+        padding: "20px",
         borderRadius: "28px",
     };
     return (
@@ -36,9 +36,11 @@ function HomePage() {
                 <div></div>
                 <AboutMe/>
                 <Spacer height="20px"/>
+                <div className="glowing-border">
                 <div id="info-container" style={infoContainerStyle}>
                     <Updates/>
                     <Links/>
+                </div>
                 </div>
                 <Spacer height="20px"/>
                 <FeaturedProjects/>
@@ -55,6 +57,7 @@ function AboutMe() {
         fontFamily: "var(--font-montserrat)",
         fontStyle: "normal",
         lineHeight: "normal",
+        zIndex: 1,
     };
     const firstLineStyle = {
         display: "block",
