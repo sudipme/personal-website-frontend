@@ -44,6 +44,7 @@ function NavBarWrapper() {
         transition: "top 0.5s ease-in-out",
         overflow: "hidden",
         backdropFilter: "blur(20px)",
+        backgroundColor: "rgba(0, 0, 0, 0.1)",
         zIndex: 100,
       };
 
