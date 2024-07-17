@@ -54,15 +54,6 @@ const raleway = Raleway({
   variable: '--font-raleway',
 })
 
-const glowEffect: CSSProperties = {
-  width: '100vw',
-  height: '60px',
-  position: 'fixed',
-  top: '-60px',
-  boxShadow: "0px 0px 300px 0px #fff",
-  zIndex: 0,
-}
-
 
 export default function RootLayout({
     children,
@@ -74,7 +65,6 @@ export default function RootLayout({
         <head></head>
         <body>
             <NavBarWrapper />
-            <div style={glowEffect}></div>
             <div id="navbar-spacer" style={{height:'60px', backgroundColor: "rgb(8,8,8)"}}></div>
             <div id="root">{children}</div>
             <Footer />

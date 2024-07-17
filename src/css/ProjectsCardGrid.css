@@ -1,24 +1,56 @@
 #grid {
-    grid-template-columns: 350px 350px 350px;
+    grid-template-columns: 500px 500px 500px;
 }
 
-#project-desctiption {
-    width: 330px;
+.project-card {
+    height: 250px;
+}
+
+#project-card-title {
+    font-size: 28px;
+}
+
+#project-card-desctiption {
+    width: 460px;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1600px) {
+    #grid {
+        grid-template-columns: 350px 350px 350px;
+    }
+
+    .project-card {
+        height: 175px;
+    }
+
+    #project-card-title {
+        font-size: 20px;
+    }
+
+    #project-card-desctiption {
+        width: 330px;
+        font-size: 14px;
+    }
+
 }
 
 @media screen and (max-width: 1100px) {
     #grid {
         grid-template-columns: 350px 350px;
     }
-    #project-desctiption {
+
+    #project-card-desctiption {
         width: 300px;
     }
 }
+
 @media screen and (max-width: 768px) {
     #grid {
         grid-template-columns: 360px;
     }
-    #project-desctiption {
+
+    #project-card-desctiption {
         width: 300px;
     }
 }
