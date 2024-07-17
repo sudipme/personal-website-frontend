@@ -14,6 +14,7 @@ interface BlogRowProps {
 
 const BlogsRow: React.FC<BlogRowProps> = ({ title, description, link }) => {
     const blogRowContainerStyle = {
+        maxWidth: "1400px",
         overflow: "hidden",
         cursor: "pointer",
     };
@@ -78,7 +79,8 @@ const FeaturedBlogs: React.FC = async () => {
 
     const blogsContainerStyle: CSSProperties = {
         width: "100vw",
-        marginTop: "20px",
+        marginTop: "40px",
+        paddingTop: "40px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -90,7 +92,7 @@ const FeaturedBlogs: React.FC = async () => {
         borderRight: "0",
         borderBottom: "0",
         borderLeft: "0",
-        boxShadow: "0px 50px 150px 0px #fff",
+        boxShadow: "0px 100px 200px 10px #fff",
     };
     const blogsContainerTitleStyle: CSSProperties = {
         textAlign: "center",
@@ -121,9 +123,9 @@ const FeaturedBlogs: React.FC = async () => {
     };
     return (
         <div style={blogsContainerStyle}>
-            <h1 id="blogs-heading" style={blogsContainerTitleStyle}>
+            {/* <h1 id="blogs-heading" style={blogsContainerTitleStyle}>
                 Blogs
-            </h1>
+            </h1> */}
             {featuredBlogs.map((blog) => (
                 <BlogsRow
                     key={blog.time_stamp}

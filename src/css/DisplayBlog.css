@@ -9,10 +9,11 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: rgb(8,8,8);
+    background-color: rgb(8, 8, 8);
 
     font-family: Sohne, sans-serif;
 }
+
 #blog-title-container {
     width: 80%;
     margin-top: 50px;
@@ -20,24 +21,22 @@
     justify-content: center;
     align-items: center;
 }
+
 #blog-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 300;
     font-style: normal;
     display: inline;
     font-family: Sohne, sans-serif;
 }
+
 #blogs-container {
     width: 50%;
     min-height: 100vh;
     margin-bottom: 100px;
-    font-size: 18px;
+
 }
-#blogs-container p {
-    padding: 0;
-    margin: 30px 0 ;
-    line-height: 1.75rem;
-}
+
 img {
     border-radius: 20px;
     margin: 20px 0;
@@ -50,6 +49,7 @@ img {
     padding: 0;
     margin-top: 45px;
 }
+
 #blogs-container h2 {
     font-size: 20px;
     font-weight: 600;
@@ -58,8 +58,15 @@ img {
     margin-top: 40px;
 }
 
+#blogs-container p {
+    padding: 0;
+    margin: 30px 0;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
 #blogs-container strong {
-    font-size: 20px;
+    font-size: 1.125rem;
     font-weight: 600;
     padding: 0;
     margin-top: 40px;
@@ -68,42 +75,75 @@ img {
 pre {
     overflow-x: auto;
     white-space: pre;
-    background-color: #ddd;
+    background-color: #323232;
     padding: 20px 5px;
     margin: 20px 0;
     border-radius: 10px;
-
 }
+
 code {
-    color: black;
-    background-color: #ddd;
+    font-size: 1rem;
+    background-color: #323232;
     padding: 2px 4px;
     border-radius: 3px;
     font-family: monospace;
-    font-size: 100%;
     box-sizing: border-box;
 }
+
+@media screen and (min-width: 1600px) {
+    #blog-title {
+        font-size: 3rem;
+    }
+    #blogs-container p {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+    }
+
+    #blogs-container h1 {
+        font-size: 2rem;
+    }
+
+    #blogs-container h2 {
+        font-size: 1.5rem;
+    }
+
+    #blogs-container strong {
+        font-size: 1.5rem;
+    }
+
+    code {
+        font-size: 1.25rem;
+    }
+}
+
 @media screen and (max-width: 1100px) {
-    #blogs-container, #blog-title-container {
+
+    #blogs-container,
+    #blog-title-container {
         width: 80%;
     }
 }
+
 @media screen and (max-width: 768px) {
     #blog-title-container {
         width: 90%;
         margin-top: 25px;
     }
+
     #blog-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
+
     #blogs-container {
         width: 100%;
         padding: 0 20px;
     }
+
     img {
         border-radius: 10px;
         margin: 20px 0;
     }
+
     #blogs-container h1 {
         font-size: 20px;
         font-weight: 600;
@@ -111,6 +151,7 @@ code {
         padding: 0;
         margin-top: 24px;
     }
+
     #blogs-container h2 {
         font-size: 20px;
         font-weight: 600;
@@ -118,10 +159,12 @@ code {
         padding: 0;
         margin-top: 20px;
     }
+
     #blogs-container p {
         padding: 0;
-        margin: 30px 0 0;
+        margin: 30px 0;
     }
+
     #blogs-container strong {
         font-size: 18px;
         font-weight: 600;

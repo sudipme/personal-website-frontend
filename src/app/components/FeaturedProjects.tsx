@@ -29,7 +29,7 @@ const FeaturedProjects: React.FC = async () => {
   const featuredProjects = await getFeaturedProjects();
 
   const gridContainerStyle = {
-    margin: "20px 0",
+    margin: "40px 0",
     maxWidth: "100vw",
     display: "flex",
     flexFlow: "column",

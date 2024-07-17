@@ -1,11 +1,9 @@
-import React, {CSSProperties} from "react";
+import React, { CSSProperties } from "react";
 import Link from "next/link";
 
 import Updates from "./components/Updates";
-import FeaturedProjects from "./components/FeaturedProjects";
 import FeaturedBlogs from "./components/FeaturedBlogs";
 import "@styles/HomePage.css";
-
 
 function HomePage() {
 
@@ -14,17 +12,10 @@ function HomePage() {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-around",
+        justifyContent: "space-between",
         alignItems: "center",
         overflow: "hidden",
         backgroundColor: "rgb(8,8,8)",
-    };
-    const infoContainerStyle: CSSProperties = {
-        display: "flex",
-        alignItems: "flex-start",
-        backgroundColor: "#000",
-        padding: "20px",
-        borderRadius: "28px",
     };
     return (
         <>
@@ -32,20 +23,9 @@ function HomePage() {
                 id="home-page"
                 style={homePageStyle}
             >
-                <Spacer height="20px"/>
-                <div></div>
-                <AboutMe/>
-                <Spacer height="20px"/>
-                <div className="glowing-border">
-                <div id="info-container" style={infoContainerStyle}>
-                    <Updates/>
-                    <Links/>
-                </div>
-                </div>
-                <Spacer height="20px"/>
-                <FeaturedProjects/>
-                <Spacer height="40px"/>
-                <FeaturedBlogs/>
+                <AboutMe />
+                <InfoContainer />
+                <FeaturedBlogs />
             </div>
         </>
     );
@@ -53,6 +33,8 @@ function HomePage() {
 
 function AboutMe() {
     const paragraphStyle = {
+        maxWidth: "1400px",
+        margin: "40px 0",
         color: "#f5f5f7",
         fontFamily: "var(--font-montserrat)",
         fontStyle: "normal",
@@ -65,38 +47,52 @@ function AboutMe() {
     };
 
     return (
-        <div id="about-me-container">
-            <p id="about-me" style={paragraphStyle}>
+        <p id="about-me" style={paragraphStyle}>
             <span style={firstLineStyle}>
             </span>
-                Hello there! I'm Sudip.
-                <br/>
-                <br/>
-                I'm currently pursuing an undergraduate degree in Computer Science at the Indian Institute of
-                Information Technology, Sri City.
-                <br/>
-                <br/>
-                One of my favorite aspects of being a computer science student is participating in weekly coding
-                contests. These challenges allow me to apply my problem-solving skills, algorithmic thinking, and
-                programming prowess to real-world scenarios.
-                <br/>
-                <br/>
-                Machine learning is a domain that truly excites me. I am actively investing time and effort into
-                understanding the intricacies of ML algorithms, techniques, and their practical applications.
-            </p>
-        </div>
+            Hello there! I'm Sudip.
+            <br />
+            <br />
+            I'm currently pursuing an undergraduate degree in Computer Science at the Indian Institute of
+            Information Technology, Sri City.
+            <br />
+            <br />
+            One of my favorite aspects of being a computer science student is participating in weekly coding
+            contests. These challenges allow me to apply my problem-solving skills, algorithmic thinking, and
+            programming prowess to real-world scenarios.
+            <br />
+            <br />
+            Machine learning is a domain that truly excites me. I am actively investing time and effort into
+            understanding the intricacies of ML algorithms, techniques, and their practical applications.
+        </p>
     );
 }
 
-function Spacer(props) {
-    const spacerStyle = {
-        height: props.height,
+function InfoContainer() {
+    const infoContainerStyle: CSSProperties = {
+        maxWidth: "1400px",
+        display: "flex",
+        alignItems: "flex-start",
+        backgroundColor: "#000",
+        padding: "20px",
+        borderRadius: "28px",
     };
-    return <div id="spacer" style={spacerStyle}></div>;
+    const borderStyle: CSSProperties = {
+        margin: "40px 0",
+    }
+    return (
+        <div className="glowing-border" style={borderStyle}>
+            <div id="info-container" style={infoContainerStyle}>
+                <Updates />
+                <Links />
+            </div>
+        </div>
+    )
 }
 
 function Links() {
     const listStyle: CSSProperties = {
+        margin: "0",
         minWidth: "300px",
         padding: "0",
         listStyleType: "none",
@@ -119,31 +115,46 @@ function Links() {
     };
     const listItemStyle: CSSProperties = {
         width: "100%",
-        padding: "10px",
-        fontSize: "18px",
-        fontWeight: 300,
-        fontFamily: "var(--font-raleway)",
-        color: "white",
-        textDecoration: "none",
+        padding: "5px",
+        fontSize: "20px",
+        fontWeight: 400,
+        fontFamily: "var(--font-montserrat)",
+        color: "#0072f5",
+        textDecoration: "underline",
         cursor: "pointer",
     };
 
     return (
         <ul id="links-list" style={listStyle}>
             <Link href="/links">
-            <div
-                style={listTitleWrapperStyle}
-            >
-                <h1 style={listTitleStyle}>Links</h1>
-            </div>
+                <div
+                    style={listTitleWrapperStyle}
+                >
+                    <h1 style={listTitleStyle}>Links</h1>
+                </div>
             </Link>
 
-            <Link href="https://resume.sudip.me">
-            <li
-                style={listItemStyle}
-            >
-                Resume
-            </li>
+            <Link href="/projects">
+                <li
+                    style={listItemStyle}
+                >
+                    Projects
+                </li>
+            </Link>
+
+            <Link href="https://sudip.me/resume/">
+                <li
+                    style={listItemStyle}
+                >
+                    Resume
+                </li>
+            </Link>
+            <Link href="https://github.com/sudipme/notebooks">
+                <li
+                    style={listItemStyle}
+                >
+                    Notebooks
+                </li>
             </Link>
         </ul>
     );

@@ -12,13 +12,13 @@ interface UpdatesRowProps {
 const UpdatesRow: React.FC<UpdatesRowProps> = ({ content, link }) => {
   const listItemStyle: CSSProperties = {
     width: "100%",
-    padding: "10px",
-    fontSize: "18px",
-    fontWeight: "300",
-    fontFamily: "var(--font-raleway)",
-    color: "white",
+    padding: "5px",
+    fontSize: "20px",
+    fontWeight: "400",
+    fontFamily: "var(--font-montserrat)",
+    color: "#0072f5",
     cursor: "pointer",
-    textDecoration: "none",
+    textDecoration: "underline",
     boxSizing: "border-box",
   };
 
@@ -60,6 +60,7 @@ const Updates: React.FC = async () => {
   const updates = await getUpdates();
 
   const listStyle: CSSProperties = {
+    margin: "0",
     minWidth: "300px",
     padding: "0px",
     listStyleType: "none",

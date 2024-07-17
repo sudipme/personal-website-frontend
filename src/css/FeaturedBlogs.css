@@ -13,7 +13,7 @@
     color: #aaa;
 }
 #featured-blog-description {
-    width: 80vw;
+    width: 100%;
     font-size: 18px;
 }
 @media screen and (max-width: 768px) {
